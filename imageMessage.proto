@@ -1,0 +1,52 @@
+package ladybug5_network;
+
+enum ImageType{
+	 LADYBUG_RAW_CAM0 = 1; 
+	 LADYBUG_RAW_CAM1 = 2;
+	 LADYBUG_RAW_CAM2 = 4;
+	 LADYBUG_RAW_CAM3 = 8;
+	 LADYBUG_RAW_CAM4 = 16; 
+	 LADYBUG_RAW_CAM5 = 32; 
+	 LADYBUG_ALL_RAW_IMAGES = 63; 
+	 LADYBUG_RECTIFIED_CAM0 = 64; 
+	 LADYBUG_RECTIFIED_CAM1 = 128; 
+	 LADYBUG_RECTIFIED_CAM2 = 256; 
+	 LADYBUG_RECTIFIED_CAM3 = 512; 
+	 LADYBUG_RECTIFIED_CAM4 = 1024; 
+	 LADYBUG_RECTIFIED_CAM5 = 2048; 
+	 LADYBUG_ALL_RECTIFIED_IMAGES = 4032; 
+	 LADYBUG_PANORAMIC = 4096; 
+	 LADYBUG_DOME = 8192; 
+	 LADYBUG_SPHERICAL = 16384; 
+	 LADYBUG_ALL_CAMERAS_VIEW = 32768; 
+	 LADYBUG_ALL_OUTPUT_IMAGE = 2147483647; 
+  };
+  
+   message LadybugTimeStamp {
+	required uint64 ulSeconds = 1; // The number of seconds since the epoch.
+	required uint64 ulMicroSeconds = 2; // The microseconds component.
+	optional uint64 ulCycleSeconds = 3; // The cycle time seconds.
+	optional uint64 ulCycleCount = 4; // The cycle time count.
+	optional uint64 ulCycleOffset = 5; // The cycle offset.
+  };
+
+  message Image {
+	optional int32 number = 6;
+	optional ImageType type = 7;
+	optional bytes image = 8;
+	optional uint32 size = 9;
+	optional LadybugTimeStamp time = 10;
+  };
+  
+message ImageMessage {
+	required string name = 1;
+	required int32 id = 2;
+	optional string email = 3;
+	repeated Image Images = 4;
+};
+
+message RequestImageMessage {
+	required string name = 1;
+	required int32 id = 2;
+	repeated ImageType images = 3;
+};
