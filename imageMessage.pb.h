@@ -35,8 +35,8 @@ void protobuf_AssignDesc_imageMessage_2eproto();
 void protobuf_ShutdownFile_imageMessage_2eproto();
 
 class LadybugTimeStamp;
-class Image;
-class ImageMessage;
+class pbImage;
+class pbMessage;
 class RequestImageMessage;
 
 enum ImageType {
@@ -199,14 +199,14 @@ class LadybugTimeStamp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class Image : public ::google::protobuf::Message {
+class pbImage : public ::google::protobuf::Message {
  public:
-  Image();
-  virtual ~Image();
+  pbImage();
+  virtual ~pbImage();
 
-  Image(const Image& from);
+  pbImage(const pbImage& from);
 
-  inline Image& operator=(const Image& from) {
+  inline pbImage& operator=(const pbImage& from) {
     CopyFrom(from);
     return *this;
   }
@@ -220,17 +220,17 @@ class Image : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Image& default_instance();
+  static const pbImage& default_instance();
 
-  void Swap(Image* other);
+  void Swap(pbImage* other);
 
   // implements Message ----------------------------------------------
 
-  Image* New() const;
+  pbImage* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Image& from);
-  void MergeFrom(const Image& from);
+  void CopyFrom(const pbImage& from);
+  void MergeFrom(const pbImage& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -295,7 +295,19 @@ class Image : public ::google::protobuf::Message {
   inline ::ladybug5_network::LadybugTimeStamp* release_time();
   inline void set_allocated_time(::ladybug5_network::LadybugTimeStamp* time);
 
-  // @@protoc_insertion_point(class_scope:ladybug5_network.Image)
+  // optional string name = 11;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 11;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // @@protoc_insertion_point(class_scope:ladybug5_network.pbImage)
  private:
   inline void set_has_number();
   inline void clear_has_number();
@@ -307,6 +319,8 @@ class Image : public ::google::protobuf::Message {
   inline void clear_has_size();
   inline void set_has_time();
   inline void clear_has_time();
+  inline void set_has_name();
+  inline void clear_has_name();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -314,28 +328,29 @@ class Image : public ::google::protobuf::Message {
   int type_;
   ::std::string* image_;
   ::ladybug5_network::LadybugTimeStamp* time_;
+  ::std::string* name_;
   ::google::protobuf::uint32 size_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_imageMessage_2eproto();
   friend void protobuf_AssignDesc_imageMessage_2eproto();
   friend void protobuf_ShutdownFile_imageMessage_2eproto();
 
   void InitAsDefaultInstance();
-  static Image* default_instance_;
+  static pbImage* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class ImageMessage : public ::google::protobuf::Message {
+class pbMessage : public ::google::protobuf::Message {
  public:
-  ImageMessage();
-  virtual ~ImageMessage();
+  pbMessage();
+  virtual ~pbMessage();
 
-  ImageMessage(const ImageMessage& from);
+  pbMessage(const pbMessage& from);
 
-  inline ImageMessage& operator=(const ImageMessage& from) {
+  inline pbMessage& operator=(const pbMessage& from) {
     CopyFrom(from);
     return *this;
   }
@@ -349,17 +364,17 @@ class ImageMessage : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ImageMessage& default_instance();
+  static const pbMessage& default_instance();
 
-  void Swap(ImageMessage* other);
+  void Swap(pbMessage* other);
 
   // implements Message ----------------------------------------------
 
-  ImageMessage* New() const;
+  pbMessage* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ImageMessage& from);
-  void MergeFrom(const ImageMessage& from);
+  void CopyFrom(const pbMessage& from);
+  void MergeFrom(const pbMessage& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -382,10 +397,29 @@ class ImageMessage : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required string name = 1;
+  // required string camera = 1;
+  inline bool has_camera() const;
+  inline void clear_camera();
+  static const int kCameraFieldNumber = 1;
+  inline const ::std::string& camera() const;
+  inline void set_camera(const ::std::string& value);
+  inline void set_camera(const char* value);
+  inline void set_camera(const char* value, size_t size);
+  inline ::std::string* mutable_camera();
+  inline ::std::string* release_camera();
+  inline void set_allocated_camera(::std::string* camera);
+
+  // optional int32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional string name = 3;
   inline bool has_name() const;
   inline void clear_name();
-  static const int kNameFieldNumber = 1;
+  static const int kNameFieldNumber = 3;
   inline const ::std::string& name() const;
   inline void set_name(const ::std::string& value);
   inline void set_name(const char* value);
@@ -394,51 +428,32 @@ class ImageMessage : public ::google::protobuf::Message {
   inline ::std::string* release_name();
   inline void set_allocated_name(::std::string* name);
 
-  // required int32 id = 2;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 2;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
-
-  // optional string email = 3;
-  inline bool has_email() const;
-  inline void clear_email();
-  static const int kEmailFieldNumber = 3;
-  inline const ::std::string& email() const;
-  inline void set_email(const ::std::string& value);
-  inline void set_email(const char* value);
-  inline void set_email(const char* value, size_t size);
-  inline ::std::string* mutable_email();
-  inline ::std::string* release_email();
-  inline void set_allocated_email(::std::string* email);
-
-  // repeated .ladybug5_network.Image Images = 4;
+  // repeated .ladybug5_network.pbImage Images = 4;
   inline int images_size() const;
   inline void clear_images();
   static const int kImagesFieldNumber = 4;
-  inline const ::ladybug5_network::Image& images(int index) const;
-  inline ::ladybug5_network::Image* mutable_images(int index);
-  inline ::ladybug5_network::Image* add_images();
-  inline const ::google::protobuf::RepeatedPtrField< ::ladybug5_network::Image >&
+  inline const ::ladybug5_network::pbImage& images(int index) const;
+  inline ::ladybug5_network::pbImage* mutable_images(int index);
+  inline ::ladybug5_network::pbImage* add_images();
+  inline const ::google::protobuf::RepeatedPtrField< ::ladybug5_network::pbImage >&
       images() const;
-  inline ::google::protobuf::RepeatedPtrField< ::ladybug5_network::Image >*
+  inline ::google::protobuf::RepeatedPtrField< ::ladybug5_network::pbImage >*
       mutable_images();
 
-  // @@protoc_insertion_point(class_scope:ladybug5_network.ImageMessage)
+  // @@protoc_insertion_point(class_scope:ladybug5_network.pbMessage)
  private:
-  inline void set_has_name();
-  inline void clear_has_name();
+  inline void set_has_camera();
+  inline void clear_has_camera();
   inline void set_has_id();
   inline void clear_has_id();
-  inline void set_has_email();
-  inline void clear_has_email();
+  inline void set_has_name();
+  inline void clear_has_name();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::std::string* camera_;
   ::std::string* name_;
-  ::std::string* email_;
-  ::google::protobuf::RepeatedPtrField< ::ladybug5_network::Image > images_;
+  ::google::protobuf::RepeatedPtrField< ::ladybug5_network::pbImage > images_;
   ::google::protobuf::int32 id_;
 
   mutable int _cached_size_;
@@ -449,7 +464,7 @@ class ImageMessage : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_imageMessage_2eproto();
 
   void InitAsDefaultInstance();
-  static ImageMessage* default_instance_;
+  static pbMessage* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -519,22 +534,19 @@ class RequestImageMessage : public ::google::protobuf::Message {
   inline ::std::string* release_name();
   inline void set_allocated_name(::std::string* name);
 
-  // required int32 id = 2;
+  // optional int32 id = 2;
   inline bool has_id() const;
   inline void clear_id();
   static const int kIdFieldNumber = 2;
   inline ::google::protobuf::int32 id() const;
   inline void set_id(::google::protobuf::int32 value);
 
-  // repeated .ladybug5_network.ImageType images = 3;
-  inline int images_size() const;
+  // optional .ladybug5_network.ImageType images = 3;
+  inline bool has_images() const;
   inline void clear_images();
   static const int kImagesFieldNumber = 3;
-  inline ::ladybug5_network::ImageType images(int index) const;
-  inline void set_images(int index, ::ladybug5_network::ImageType value);
-  inline void add_images(::ladybug5_network::ImageType value);
-  inline const ::google::protobuf::RepeatedField<int>& images() const;
-  inline ::google::protobuf::RepeatedField<int>* mutable_images();
+  inline ::ladybug5_network::ImageType images() const;
+  inline void set_images(::ladybug5_network::ImageType value);
 
   // @@protoc_insertion_point(class_scope:ladybug5_network.RequestImageMessage)
  private:
@@ -542,12 +554,14 @@ class RequestImageMessage : public ::google::protobuf::Message {
   inline void clear_has_name();
   inline void set_has_id();
   inline void clear_has_id();
+  inline void set_has_images();
+  inline void clear_has_images();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* name_;
-  ::google::protobuf::RepeatedField<int> images_;
   ::google::protobuf::int32 id_;
+  int images_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -678,101 +692,101 @@ inline void LadybugTimeStamp::set_ulcycleoffset(::google::protobuf::uint64 value
 
 // -------------------------------------------------------------------
 
-// Image
+// pbImage
 
 // optional int32 number = 6;
-inline bool Image::has_number() const {
+inline bool pbImage::has_number() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Image::set_has_number() {
+inline void pbImage::set_has_number() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Image::clear_has_number() {
+inline void pbImage::clear_has_number() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Image::clear_number() {
+inline void pbImage::clear_number() {
   number_ = 0;
   clear_has_number();
 }
-inline ::google::protobuf::int32 Image::number() const {
+inline ::google::protobuf::int32 pbImage::number() const {
   return number_;
 }
-inline void Image::set_number(::google::protobuf::int32 value) {
+inline void pbImage::set_number(::google::protobuf::int32 value) {
   set_has_number();
   number_ = value;
 }
 
 // optional .ladybug5_network.ImageType type = 7;
-inline bool Image::has_type() const {
+inline bool pbImage::has_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void Image::set_has_type() {
+inline void pbImage::set_has_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void Image::clear_has_type() {
+inline void pbImage::clear_has_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void Image::clear_type() {
+inline void pbImage::clear_type() {
   type_ = 1;
   clear_has_type();
 }
-inline ::ladybug5_network::ImageType Image::type() const {
+inline ::ladybug5_network::ImageType pbImage::type() const {
   return static_cast< ::ladybug5_network::ImageType >(type_);
 }
-inline void Image::set_type(::ladybug5_network::ImageType value) {
+inline void pbImage::set_type(::ladybug5_network::ImageType value) {
   assert(::ladybug5_network::ImageType_IsValid(value));
   set_has_type();
   type_ = value;
 }
 
 // optional bytes image = 8;
-inline bool Image::has_image() const {
+inline bool pbImage::has_image() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Image::set_has_image() {
+inline void pbImage::set_has_image() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void Image::clear_has_image() {
+inline void pbImage::clear_has_image() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void Image::clear_image() {
+inline void pbImage::clear_image() {
   if (image_ != &::google::protobuf::internal::kEmptyString) {
     image_->clear();
   }
   clear_has_image();
 }
-inline const ::std::string& Image::image() const {
+inline const ::std::string& pbImage::image() const {
   return *image_;
 }
-inline void Image::set_image(const ::std::string& value) {
+inline void pbImage::set_image(const ::std::string& value) {
   set_has_image();
   if (image_ == &::google::protobuf::internal::kEmptyString) {
     image_ = new ::std::string;
   }
   image_->assign(value);
 }
-inline void Image::set_image(const char* value) {
+inline void pbImage::set_image(const char* value) {
   set_has_image();
   if (image_ == &::google::protobuf::internal::kEmptyString) {
     image_ = new ::std::string;
   }
   image_->assign(value);
 }
-inline void Image::set_image(const void* value, size_t size) {
+inline void pbImage::set_image(const void* value, size_t size) {
   set_has_image();
   if (image_ == &::google::protobuf::internal::kEmptyString) {
     image_ = new ::std::string;
   }
   image_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* Image::mutable_image() {
+inline ::std::string* pbImage::mutable_image() {
   set_has_image();
   if (image_ == &::google::protobuf::internal::kEmptyString) {
     image_ = new ::std::string;
   }
   return image_;
 }
-inline ::std::string* Image::release_image() {
+inline ::std::string* pbImage::release_image() {
   clear_has_image();
   if (image_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -782,7 +796,7 @@ inline ::std::string* Image::release_image() {
     return temp;
   }
 }
-inline void Image::set_allocated_image(::std::string* image) {
+inline void pbImage::set_allocated_image(::std::string* image) {
   if (image_ != &::google::protobuf::internal::kEmptyString) {
     delete image_;
   }
@@ -796,56 +810,56 @@ inline void Image::set_allocated_image(::std::string* image) {
 }
 
 // optional uint32 size = 9;
-inline bool Image::has_size() const {
+inline bool pbImage::has_size() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void Image::set_has_size() {
+inline void pbImage::set_has_size() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void Image::clear_has_size() {
+inline void pbImage::clear_has_size() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void Image::clear_size() {
+inline void pbImage::clear_size() {
   size_ = 0u;
   clear_has_size();
 }
-inline ::google::protobuf::uint32 Image::size() const {
+inline ::google::protobuf::uint32 pbImage::size() const {
   return size_;
 }
-inline void Image::set_size(::google::protobuf::uint32 value) {
+inline void pbImage::set_size(::google::protobuf::uint32 value) {
   set_has_size();
   size_ = value;
 }
 
 // optional .ladybug5_network.LadybugTimeStamp time = 10;
-inline bool Image::has_time() const {
+inline bool pbImage::has_time() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void Image::set_has_time() {
+inline void pbImage::set_has_time() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void Image::clear_has_time() {
+inline void pbImage::clear_has_time() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void Image::clear_time() {
+inline void pbImage::clear_time() {
   if (time_ != NULL) time_->::ladybug5_network::LadybugTimeStamp::Clear();
   clear_has_time();
 }
-inline const ::ladybug5_network::LadybugTimeStamp& Image::time() const {
+inline const ::ladybug5_network::LadybugTimeStamp& pbImage::time() const {
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
-inline ::ladybug5_network::LadybugTimeStamp* Image::mutable_time() {
+inline ::ladybug5_network::LadybugTimeStamp* pbImage::mutable_time() {
   set_has_time();
   if (time_ == NULL) time_ = new ::ladybug5_network::LadybugTimeStamp;
   return time_;
 }
-inline ::ladybug5_network::LadybugTimeStamp* Image::release_time() {
+inline ::ladybug5_network::LadybugTimeStamp* pbImage::release_time() {
   clear_has_time();
   ::ladybug5_network::LadybugTimeStamp* temp = time_;
   time_ = NULL;
   return temp;
 }
-inline void Image::set_allocated_time(::ladybug5_network::LadybugTimeStamp* time) {
+inline void pbImage::set_allocated_time(::ladybug5_network::LadybugTimeStamp* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -855,58 +869,54 @@ inline void Image::set_allocated_time(::ladybug5_network::LadybugTimeStamp* time
   }
 }
 
-// -------------------------------------------------------------------
-
-// ImageMessage
-
-// required string name = 1;
-inline bool ImageMessage::has_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// optional string name = 11;
+inline bool pbImage::has_name() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void ImageMessage::set_has_name() {
-  _has_bits_[0] |= 0x00000001u;
+inline void pbImage::set_has_name() {
+  _has_bits_[0] |= 0x00000020u;
 }
-inline void ImageMessage::clear_has_name() {
-  _has_bits_[0] &= ~0x00000001u;
+inline void pbImage::clear_has_name() {
+  _has_bits_[0] &= ~0x00000020u;
 }
-inline void ImageMessage::clear_name() {
+inline void pbImage::clear_name() {
   if (name_ != &::google::protobuf::internal::kEmptyString) {
     name_->clear();
   }
   clear_has_name();
 }
-inline const ::std::string& ImageMessage::name() const {
+inline const ::std::string& pbImage::name() const {
   return *name_;
 }
-inline void ImageMessage::set_name(const ::std::string& value) {
+inline void pbImage::set_name(const ::std::string& value) {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   name_->assign(value);
 }
-inline void ImageMessage::set_name(const char* value) {
+inline void pbImage::set_name(const char* value) {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   name_->assign(value);
 }
-inline void ImageMessage::set_name(const char* value, size_t size) {
+inline void pbImage::set_name(const char* value, size_t size) {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* ImageMessage::mutable_name() {
+inline ::std::string* pbImage::mutable_name() {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   return name_;
 }
-inline ::std::string* ImageMessage::release_name() {
+inline ::std::string* pbImage::release_name() {
   clear_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -916,7 +926,7 @@ inline ::std::string* ImageMessage::release_name() {
     return temp;
   }
 }
-inline void ImageMessage::set_allocated_name(::std::string* name) {
+inline void pbImage::set_allocated_name(::std::string* name) {
   if (name_ != &::google::protobuf::internal::kEmptyString) {
     delete name_;
   }
@@ -929,120 +939,194 @@ inline void ImageMessage::set_allocated_name(::std::string* name) {
   }
 }
 
-// required int32 id = 2;
-inline bool ImageMessage::has_id() const {
+// -------------------------------------------------------------------
+
+// pbMessage
+
+// required string camera = 1;
+inline bool pbMessage::has_camera() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbMessage::set_has_camera() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbMessage::clear_has_camera() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbMessage::clear_camera() {
+  if (camera_ != &::google::protobuf::internal::kEmptyString) {
+    camera_->clear();
+  }
+  clear_has_camera();
+}
+inline const ::std::string& pbMessage::camera() const {
+  return *camera_;
+}
+inline void pbMessage::set_camera(const ::std::string& value) {
+  set_has_camera();
+  if (camera_ == &::google::protobuf::internal::kEmptyString) {
+    camera_ = new ::std::string;
+  }
+  camera_->assign(value);
+}
+inline void pbMessage::set_camera(const char* value) {
+  set_has_camera();
+  if (camera_ == &::google::protobuf::internal::kEmptyString) {
+    camera_ = new ::std::string;
+  }
+  camera_->assign(value);
+}
+inline void pbMessage::set_camera(const char* value, size_t size) {
+  set_has_camera();
+  if (camera_ == &::google::protobuf::internal::kEmptyString) {
+    camera_ = new ::std::string;
+  }
+  camera_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbMessage::mutable_camera() {
+  set_has_camera();
+  if (camera_ == &::google::protobuf::internal::kEmptyString) {
+    camera_ = new ::std::string;
+  }
+  return camera_;
+}
+inline ::std::string* pbMessage::release_camera() {
+  clear_has_camera();
+  if (camera_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = camera_;
+    camera_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbMessage::set_allocated_camera(::std::string* camera) {
+  if (camera_ != &::google::protobuf::internal::kEmptyString) {
+    delete camera_;
+  }
+  if (camera) {
+    set_has_camera();
+    camera_ = camera;
+  } else {
+    clear_has_camera();
+    camera_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 id = 2;
+inline bool pbMessage::has_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void ImageMessage::set_has_id() {
+inline void pbMessage::set_has_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void ImageMessage::clear_has_id() {
+inline void pbMessage::clear_has_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void ImageMessage::clear_id() {
+inline void pbMessage::clear_id() {
   id_ = 0;
   clear_has_id();
 }
-inline ::google::protobuf::int32 ImageMessage::id() const {
+inline ::google::protobuf::int32 pbMessage::id() const {
   return id_;
 }
-inline void ImageMessage::set_id(::google::protobuf::int32 value) {
+inline void pbMessage::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
 }
 
-// optional string email = 3;
-inline bool ImageMessage::has_email() const {
+// optional string name = 3;
+inline bool pbMessage::has_name() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void ImageMessage::set_has_email() {
+inline void pbMessage::set_has_name() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void ImageMessage::clear_has_email() {
+inline void pbMessage::clear_has_name() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void ImageMessage::clear_email() {
-  if (email_ != &::google::protobuf::internal::kEmptyString) {
-    email_->clear();
+inline void pbMessage::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
   }
-  clear_has_email();
+  clear_has_name();
 }
-inline const ::std::string& ImageMessage::email() const {
-  return *email_;
+inline const ::std::string& pbMessage::name() const {
+  return *name_;
 }
-inline void ImageMessage::set_email(const ::std::string& value) {
-  set_has_email();
-  if (email_ == &::google::protobuf::internal::kEmptyString) {
-    email_ = new ::std::string;
+inline void pbMessage::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
   }
-  email_->assign(value);
+  name_->assign(value);
 }
-inline void ImageMessage::set_email(const char* value) {
-  set_has_email();
-  if (email_ == &::google::protobuf::internal::kEmptyString) {
-    email_ = new ::std::string;
+inline void pbMessage::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
   }
-  email_->assign(value);
+  name_->assign(value);
 }
-inline void ImageMessage::set_email(const char* value, size_t size) {
-  set_has_email();
-  if (email_ == &::google::protobuf::internal::kEmptyString) {
-    email_ = new ::std::string;
+inline void pbMessage::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
   }
-  email_->assign(reinterpret_cast<const char*>(value), size);
+  name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* ImageMessage::mutable_email() {
-  set_has_email();
-  if (email_ == &::google::protobuf::internal::kEmptyString) {
-    email_ = new ::std::string;
+inline ::std::string* pbMessage::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
   }
-  return email_;
+  return name_;
 }
-inline ::std::string* ImageMessage::release_email() {
-  clear_has_email();
-  if (email_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* pbMessage::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = email_;
-    email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void ImageMessage::set_allocated_email(::std::string* email) {
-  if (email_ != &::google::protobuf::internal::kEmptyString) {
-    delete email_;
+inline void pbMessage::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
   }
-  if (email) {
-    set_has_email();
-    email_ = email;
+  if (name) {
+    set_has_name();
+    name_ = name;
   } else {
-    clear_has_email();
-    email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// repeated .ladybug5_network.Image Images = 4;
-inline int ImageMessage::images_size() const {
+// repeated .ladybug5_network.pbImage Images = 4;
+inline int pbMessage::images_size() const {
   return images_.size();
 }
-inline void ImageMessage::clear_images() {
+inline void pbMessage::clear_images() {
   images_.Clear();
 }
-inline const ::ladybug5_network::Image& ImageMessage::images(int index) const {
+inline const ::ladybug5_network::pbImage& pbMessage::images(int index) const {
   return images_.Get(index);
 }
-inline ::ladybug5_network::Image* ImageMessage::mutable_images(int index) {
+inline ::ladybug5_network::pbImage* pbMessage::mutable_images(int index) {
   return images_.Mutable(index);
 }
-inline ::ladybug5_network::Image* ImageMessage::add_images() {
+inline ::ladybug5_network::pbImage* pbMessage::add_images() {
   return images_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::ladybug5_network::Image >&
-ImageMessage::images() const {
+inline const ::google::protobuf::RepeatedPtrField< ::ladybug5_network::pbImage >&
+pbMessage::images() const {
   return images_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::ladybug5_network::Image >*
-ImageMessage::mutable_images() {
+inline ::google::protobuf::RepeatedPtrField< ::ladybug5_network::pbImage >*
+pbMessage::mutable_images() {
   return &images_;
 }
 
@@ -1120,7 +1204,7 @@ inline void RequestImageMessage::set_allocated_name(::std::string* name) {
   }
 }
 
-// required int32 id = 2;
+// optional int32 id = 2;
 inline bool RequestImageMessage::has_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1142,31 +1226,27 @@ inline void RequestImageMessage::set_id(::google::protobuf::int32 value) {
   id_ = value;
 }
 
-// repeated .ladybug5_network.ImageType images = 3;
-inline int RequestImageMessage::images_size() const {
-  return images_.size();
+// optional .ladybug5_network.ImageType images = 3;
+inline bool RequestImageMessage::has_images() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void RequestImageMessage::set_has_images() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void RequestImageMessage::clear_has_images() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void RequestImageMessage::clear_images() {
-  images_.Clear();
+  images_ = 1;
+  clear_has_images();
 }
-inline ::ladybug5_network::ImageType RequestImageMessage::images(int index) const {
-  return static_cast< ::ladybug5_network::ImageType >(images_.Get(index));
+inline ::ladybug5_network::ImageType RequestImageMessage::images() const {
+  return static_cast< ::ladybug5_network::ImageType >(images_);
 }
-inline void RequestImageMessage::set_images(int index, ::ladybug5_network::ImageType value) {
+inline void RequestImageMessage::set_images(::ladybug5_network::ImageType value) {
   assert(::ladybug5_network::ImageType_IsValid(value));
-  images_.Set(index, value);
-}
-inline void RequestImageMessage::add_images(::ladybug5_network::ImageType value) {
-  assert(::ladybug5_network::ImageType_IsValid(value));
-  images_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField<int>&
-RequestImageMessage::images() const {
-  return images_;
-}
-inline ::google::protobuf::RepeatedField<int>*
-RequestImageMessage::mutable_images() {
-  return &images_;
+  set_has_images();
+  images_ = value;
 }
 
 

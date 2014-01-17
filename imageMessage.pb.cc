@@ -23,12 +23,12 @@ namespace {
 const ::google::protobuf::Descriptor* LadybugTimeStamp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   LadybugTimeStamp_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Image_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* pbImage_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Image_reflection_ = NULL;
-const ::google::protobuf::Descriptor* ImageMessage_descriptor_ = NULL;
+  pbImage_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pbMessage_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  ImageMessage_reflection_ = NULL;
+  pbMessage_reflection_ = NULL;
 const ::google::protobuf::Descriptor* RequestImageMessage_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RequestImageMessage_reflection_ = NULL;
@@ -62,43 +62,44 @@ void protobuf_AssignDesc_imageMessage_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LadybugTimeStamp));
-  Image_descriptor_ = file->message_type(1);
-  static const int Image_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Image, number_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Image, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Image, image_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Image, size_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Image, time_),
+  pbImage_descriptor_ = file->message_type(1);
+  static const int pbImage_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbImage, number_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbImage, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbImage, image_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbImage, size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbImage, time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbImage, name_),
   };
-  Image_reflection_ =
+  pbImage_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Image_descriptor_,
-      Image::default_instance_,
-      Image_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Image, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Image, _unknown_fields_),
+      pbImage_descriptor_,
+      pbImage::default_instance_,
+      pbImage_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbImage, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbImage, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Image));
-  ImageMessage_descriptor_ = file->message_type(2);
-  static const int ImageMessage_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ImageMessage, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ImageMessage, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ImageMessage, email_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ImageMessage, images_),
+      sizeof(pbImage));
+  pbMessage_descriptor_ = file->message_type(2);
+  static const int pbMessage_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMessage, camera_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMessage, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMessage, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMessage, images_),
   };
-  ImageMessage_reflection_ =
+  pbMessage_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      ImageMessage_descriptor_,
-      ImageMessage::default_instance_,
-      ImageMessage_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ImageMessage, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ImageMessage, _unknown_fields_),
+      pbMessage_descriptor_,
+      pbMessage::default_instance_,
+      pbMessage_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMessage, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMessage, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(ImageMessage));
+      sizeof(pbMessage));
   RequestImageMessage_descriptor_ = file->message_type(3);
   static const int RequestImageMessage_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RequestImageMessage, name_),
@@ -132,9 +133,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     LadybugTimeStamp_descriptor_, &LadybugTimeStamp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Image_descriptor_, &Image::default_instance());
+    pbImage_descriptor_, &pbImage::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    ImageMessage_descriptor_, &ImageMessage::default_instance());
+    pbMessage_descriptor_, &pbMessage::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     RequestImageMessage_descriptor_, &RequestImageMessage::default_instance());
 }
@@ -144,10 +145,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_imageMessage_2eproto() {
   delete LadybugTimeStamp::default_instance_;
   delete LadybugTimeStamp_reflection_;
-  delete Image::default_instance_;
-  delete Image_reflection_;
-  delete ImageMessage::default_instance_;
-  delete ImageMessage_reflection_;
+  delete pbImage::default_instance_;
+  delete pbImage_reflection_;
+  delete pbMessage::default_instance_;
+  delete pbMessage_reflection_;
   delete RequestImageMessage::default_instance_;
   delete RequestImageMessage_reflection_;
 }
@@ -163,37 +164,38 @@ void protobuf_AddDesc_imageMessage_2eproto() {
     "\001\n\020LadybugTimeStamp\022\021\n\tulSeconds\030\001 \002(\004\022\026"
     "\n\016ulMicroSeconds\030\002 \002(\004\022\026\n\016ulCycleSeconds"
     "\030\003 \001(\004\022\024\n\014ulCycleCount\030\004 \001(\004\022\025\n\rulCycleO"
-    "ffset\030\005 \001(\004\"\221\001\n\005Image\022\016\n\006number\030\006 \001(\005\022)\n"
-    "\004type\030\007 \001(\0162\033.ladybug5_network.ImageType"
-    "\022\r\n\005image\030\010 \001(\014\022\014\n\004size\030\t \001(\r\0220\n\004time\030\n "
-    "\001(\0132\".ladybug5_network.LadybugTimeStamp\""
-    "`\n\014ImageMessage\022\014\n\004name\030\001 \002(\t\022\n\n\002id\030\002 \002("
-    "\005\022\r\n\005email\030\003 \001(\t\022\'\n\006Images\030\004 \003(\0132\027.ladyb"
-    "ug5_network.Image\"\\\n\023RequestImageMessage"
-    "\022\014\n\004name\030\001 \002(\t\022\n\n\002id\030\002 \002(\005\022+\n\006images\030\003 \003"
-    "(\0162\033.ladybug5_network.ImageType*\201\004\n\tImag"
-    "eType\022\024\n\020LADYBUG_RAW_CAM0\020\001\022\024\n\020LADYBUG_R"
-    "AW_CAM1\020\002\022\024\n\020LADYBUG_RAW_CAM2\020\004\022\024\n\020LADYB"
-    "UG_RAW_CAM3\020\010\022\024\n\020LADYBUG_RAW_CAM4\020\020\022\024\n\020L"
-    "ADYBUG_RAW_CAM5\020 \022\032\n\026LADYBUG_ALL_RAW_IMA"
-    "GES\020\?\022\032\n\026LADYBUG_RECTIFIED_CAM0\020@\022\033\n\026LAD"
-    "YBUG_RECTIFIED_CAM1\020\200\001\022\033\n\026LADYBUG_RECTIF"
-    "IED_CAM2\020\200\002\022\033\n\026LADYBUG_RECTIFIED_CAM3\020\200\004"
-    "\022\033\n\026LADYBUG_RECTIFIED_CAM4\020\200\010\022\033\n\026LADYBUG"
-    "_RECTIFIED_CAM5\020\200\020\022!\n\034LADYBUG_ALL_RECTIF"
-    "IED_IMAGES\020\300\037\022\026\n\021LADYBUG_PANORAMIC\020\200 \022\021\n"
-    "\014LADYBUG_DOME\020\200@\022\027\n\021LADYBUG_SPHERICAL\020\200\200"
-    "\001\022\036\n\030LADYBUG_ALL_CAMERAS_VIEW\020\200\200\002\022 \n\030LAD"
-    "YBUG_ALL_OUTPUT_IMAGE\020\377\377\377\377\007", 1027);
+    "ffset\030\005 \001(\004\"\241\001\n\007pbImage\022\016\n\006number\030\006 \001(\005\022"
+    ")\n\004type\030\007 \001(\0162\033.ladybug5_network.ImageTy"
+    "pe\022\r\n\005image\030\010 \001(\014\022\014\n\004size\030\t \001(\r\0220\n\004time\030"
+    "\n \001(\0132\".ladybug5_network.LadybugTimeStam"
+    "p\022\014\n\004name\030\013 \001(\t\"`\n\tpbMessage\022\016\n\006camera\030\001"
+    " \002(\t\022\n\n\002id\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022)\n\006Images"
+    "\030\004 \003(\0132\031.ladybug5_network.pbImage\"\\\n\023Req"
+    "uestImageMessage\022\014\n\004name\030\001 \002(\t\022\n\n\002id\030\002 \001"
+    "(\005\022+\n\006images\030\003 \001(\0162\033.ladybug5_network.Im"
+    "ageType*\201\004\n\tImageType\022\024\n\020LADYBUG_RAW_CAM"
+    "0\020\001\022\024\n\020LADYBUG_RAW_CAM1\020\002\022\024\n\020LADYBUG_RAW"
+    "_CAM2\020\004\022\024\n\020LADYBUG_RAW_CAM3\020\010\022\024\n\020LADYBUG"
+    "_RAW_CAM4\020\020\022\024\n\020LADYBUG_RAW_CAM5\020 \022\032\n\026LAD"
+    "YBUG_ALL_RAW_IMAGES\020\?\022\032\n\026LADYBUG_RECTIFI"
+    "ED_CAM0\020@\022\033\n\026LADYBUG_RECTIFIED_CAM1\020\200\001\022\033"
+    "\n\026LADYBUG_RECTIFIED_CAM2\020\200\002\022\033\n\026LADYBUG_R"
+    "ECTIFIED_CAM3\020\200\004\022\033\n\026LADYBUG_RECTIFIED_CA"
+    "M4\020\200\010\022\033\n\026LADYBUG_RECTIFIED_CAM5\020\200\020\022!\n\034LA"
+    "DYBUG_ALL_RECTIFIED_IMAGES\020\300\037\022\026\n\021LADYBUG"
+    "_PANORAMIC\020\200 \022\021\n\014LADYBUG_DOME\020\200@\022\027\n\021LADY"
+    "BUG_SPHERICAL\020\200\200\001\022\036\n\030LADYBUG_ALL_CAMERAS"
+    "_VIEW\020\200\200\002\022 \n\030LADYBUG_ALL_OUTPUT_IMAGE\020\377\377"
+    "\377\377\007", 1043);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "imageMessage.proto", &protobuf_RegisterTypes);
   LadybugTimeStamp::default_instance_ = new LadybugTimeStamp();
-  Image::default_instance_ = new Image();
-  ImageMessage::default_instance_ = new ImageMessage();
+  pbImage::default_instance_ = new pbImage();
+  pbMessage::default_instance_ = new pbMessage();
   RequestImageMessage::default_instance_ = new RequestImageMessage();
   LadybugTimeStamp::default_instance_->InitAsDefaultInstance();
-  Image::default_instance_->InitAsDefaultInstance();
-  ImageMessage::default_instance_->InitAsDefaultInstance();
+  pbImage::default_instance_->InitAsDefaultInstance();
+  pbMessage::default_instance_->InitAsDefaultInstance();
   RequestImageMessage::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_imageMessage_2eproto);
 }
@@ -608,73 +610,78 @@ void LadybugTimeStamp::Swap(LadybugTimeStamp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Image::kNumberFieldNumber;
-const int Image::kTypeFieldNumber;
-const int Image::kImageFieldNumber;
-const int Image::kSizeFieldNumber;
-const int Image::kTimeFieldNumber;
+const int pbImage::kNumberFieldNumber;
+const int pbImage::kTypeFieldNumber;
+const int pbImage::kImageFieldNumber;
+const int pbImage::kSizeFieldNumber;
+const int pbImage::kTimeFieldNumber;
+const int pbImage::kNameFieldNumber;
 #endif  // !_MSC_VER
 
-Image::Image()
+pbImage::pbImage()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Image::InitAsDefaultInstance() {
+void pbImage::InitAsDefaultInstance() {
   time_ = const_cast< ::ladybug5_network::LadybugTimeStamp*>(&::ladybug5_network::LadybugTimeStamp::default_instance());
 }
 
-Image::Image(const Image& from)
+pbImage::pbImage(const pbImage& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Image::SharedCtor() {
+void pbImage::SharedCtor() {
   _cached_size_ = 0;
   number_ = 0;
   type_ = 1;
   image_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   size_ = 0u;
   time_ = NULL;
+  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Image::~Image() {
+pbImage::~pbImage() {
   SharedDtor();
 }
 
-void Image::SharedDtor() {
+void pbImage::SharedDtor() {
   if (image_ != &::google::protobuf::internal::kEmptyString) {
     delete image_;
+  }
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
   }
   if (this != default_instance_) {
     delete time_;
   }
 }
 
-void Image::SetCachedSize(int size) const {
+void pbImage::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Image::descriptor() {
+const ::google::protobuf::Descriptor* pbImage::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Image_descriptor_;
+  return pbImage_descriptor_;
 }
 
-const Image& Image::default_instance() {
+const pbImage& pbImage::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_imageMessage_2eproto();
   return *default_instance_;
 }
 
-Image* Image::default_instance_ = NULL;
+pbImage* pbImage::default_instance_ = NULL;
 
-Image* Image::New() const {
-  return new Image;
+pbImage* pbImage::New() const {
+  return new pbImage;
 }
 
-void Image::Clear() {
+void pbImage::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     number_ = 0;
     type_ = 1;
@@ -687,12 +694,17 @@ void Image::Clear() {
     if (has_time()) {
       if (time_ != NULL) time_->::ladybug5_network::LadybugTimeStamp::Clear();
     }
+    if (has_name()) {
+      if (name_ != &::google::protobuf::internal::kEmptyString) {
+        name_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Image::MergePartialFromCodedStream(
+bool pbImage::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -774,6 +786,23 @@ bool Image::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(90)) goto parse_name;
+        break;
+      }
+
+      // optional string name = 11;
+      case 11: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -794,7 +823,7 @@ bool Image::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Image::SerializeWithCachedSizes(
+void pbImage::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 number = 6;
   if (has_number()) {
@@ -824,13 +853,22 @@ void Image::SerializeWithCachedSizes(
       10, this->time(), output);
   }
 
+  // optional string name = 11;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      11, this->name(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
 }
 
-::google::protobuf::uint8* Image::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* pbImage::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 number = 6;
   if (has_number()) {
@@ -862,6 +900,16 @@ void Image::SerializeWithCachedSizes(
         10, this->time(), target);
   }
 
+  // optional string name = 11;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        11, this->name(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -869,7 +917,7 @@ void Image::SerializeWithCachedSizes(
   return target;
 }
 
-int Image::ByteSize() const {
+int pbImage::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -907,6 +955,13 @@ int Image::ByteSize() const {
           this->time());
     }
 
+    // optional string name = 11;
+    if (has_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->name());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -919,10 +974,10 @@ int Image::ByteSize() const {
   return total_size;
 }
 
-void Image::MergeFrom(const ::google::protobuf::Message& from) {
+void pbImage::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Image* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Image*>(
+  const pbImage* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pbImage*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -931,7 +986,7 @@ void Image::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Image::MergeFrom(const Image& from) {
+void pbImage::MergeFrom(const pbImage& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_number()) {
@@ -949,23 +1004,26 @@ void Image::MergeFrom(const Image& from) {
     if (from.has_time()) {
       mutable_time()->::ladybug5_network::LadybugTimeStamp::MergeFrom(from.time());
     }
+    if (from.has_name()) {
+      set_name(from.name());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Image::CopyFrom(const ::google::protobuf::Message& from) {
+void pbImage::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Image::CopyFrom(const Image& from) {
+void pbImage::CopyFrom(const pbImage& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Image::IsInitialized() const {
+bool pbImage::IsInitialized() const {
 
   if (has_time()) {
     if (!this->time().IsInitialized()) return false;
@@ -973,24 +1031,25 @@ bool Image::IsInitialized() const {
   return true;
 }
 
-void Image::Swap(Image* other) {
+void pbImage::Swap(pbImage* other) {
   if (other != this) {
     std::swap(number_, other->number_);
     std::swap(type_, other->type_);
     std::swap(image_, other->image_);
     std::swap(size_, other->size_);
     std::swap(time_, other->time_);
+    std::swap(name_, other->name_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Image::GetMetadata() const {
+::google::protobuf::Metadata pbImage::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Image_descriptor_;
-  metadata.reflection = Image_reflection_;
+  metadata.descriptor = pbImage_descriptor_;
+  metadata.reflection = pbImage_reflection_;
   return metadata;
 }
 
@@ -998,81 +1057,81 @@ void Image::Swap(Image* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int ImageMessage::kNameFieldNumber;
-const int ImageMessage::kIdFieldNumber;
-const int ImageMessage::kEmailFieldNumber;
-const int ImageMessage::kImagesFieldNumber;
+const int pbMessage::kCameraFieldNumber;
+const int pbMessage::kIdFieldNumber;
+const int pbMessage::kNameFieldNumber;
+const int pbMessage::kImagesFieldNumber;
 #endif  // !_MSC_VER
 
-ImageMessage::ImageMessage()
+pbMessage::pbMessage()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void ImageMessage::InitAsDefaultInstance() {
+void pbMessage::InitAsDefaultInstance() {
 }
 
-ImageMessage::ImageMessage(const ImageMessage& from)
+pbMessage::pbMessage(const pbMessage& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void ImageMessage::SharedCtor() {
+void pbMessage::SharedCtor() {
   _cached_size_ = 0;
-  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  camera_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   id_ = 0;
-  email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-ImageMessage::~ImageMessage() {
+pbMessage::~pbMessage() {
   SharedDtor();
 }
 
-void ImageMessage::SharedDtor() {
+void pbMessage::SharedDtor() {
+  if (camera_ != &::google::protobuf::internal::kEmptyString) {
+    delete camera_;
+  }
   if (name_ != &::google::protobuf::internal::kEmptyString) {
     delete name_;
-  }
-  if (email_ != &::google::protobuf::internal::kEmptyString) {
-    delete email_;
   }
   if (this != default_instance_) {
   }
 }
 
-void ImageMessage::SetCachedSize(int size) const {
+void pbMessage::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* ImageMessage::descriptor() {
+const ::google::protobuf::Descriptor* pbMessage::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return ImageMessage_descriptor_;
+  return pbMessage_descriptor_;
 }
 
-const ImageMessage& ImageMessage::default_instance() {
+const pbMessage& pbMessage::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_imageMessage_2eproto();
   return *default_instance_;
 }
 
-ImageMessage* ImageMessage::default_instance_ = NULL;
+pbMessage* pbMessage::default_instance_ = NULL;
 
-ImageMessage* ImageMessage::New() const {
-  return new ImageMessage;
+pbMessage* pbMessage::New() const {
+  return new pbMessage;
 }
 
-void ImageMessage::Clear() {
+void pbMessage::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_name()) {
-      if (name_ != &::google::protobuf::internal::kEmptyString) {
-        name_->clear();
+    if (has_camera()) {
+      if (camera_ != &::google::protobuf::internal::kEmptyString) {
+        camera_->clear();
       }
     }
     id_ = 0;
-    if (has_email()) {
-      if (email_ != &::google::protobuf::internal::kEmptyString) {
-        email_->clear();
+    if (has_name()) {
+      if (name_ != &::google::protobuf::internal::kEmptyString) {
+        name_->clear();
       }
     }
   }
@@ -1081,20 +1140,20 @@ void ImageMessage::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool ImageMessage::MergePartialFromCodedStream(
+bool pbMessage::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string name = 1;
+      // required string camera = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
+                input, this->mutable_camera()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->name().data(), this->name().length(),
+            this->camera().data(), this->camera().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
@@ -1103,7 +1162,7 @@ bool ImageMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // required int32 id = 2;
+      // optional int32 id = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1115,19 +1174,19 @@ bool ImageMessage::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_email;
+        if (input->ExpectTag(26)) goto parse_name;
         break;
       }
 
-      // optional string email = 3;
+      // optional string name = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_email:
+         parse_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_email()));
+                input, this->mutable_name()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->email().data(), this->email().length(),
+            this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
@@ -1136,7 +1195,7 @@ bool ImageMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .ladybug5_network.Image Images = 4;
+      // repeated .ladybug5_network.pbImage Images = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1167,32 +1226,32 @@ bool ImageMessage::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void ImageMessage::SerializeWithCachedSizes(
+void pbMessage::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required string name = 1;
+  // required string camera = 1;
+  if (has_camera()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->camera().data(), this->camera().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->camera(), output);
+  }
+
+  // optional int32 id = 2;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->id(), output);
+  }
+
+  // optional string name = 3;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->name(), output);
+      3, this->name(), output);
   }
 
-  // required int32 id = 2;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->id(), output);
-  }
-
-  // optional string email = 3;
-  if (has_email()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->email().data(), this->email().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->email(), output);
-  }
-
-  // repeated .ladybug5_network.Image Images = 4;
+  // repeated .ladybug5_network.pbImage Images = 4;
   for (int i = 0; i < this->images_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->images(i), output);
@@ -1204,34 +1263,34 @@ void ImageMessage::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* ImageMessage::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* pbMessage::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required string name = 1;
+  // required string camera = 1;
+  if (has_camera()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->camera().data(), this->camera().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->camera(), target);
+  }
+
+  // optional int32 id = 2;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->id(), target);
+  }
+
+  // optional string name = 3;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->name(), target);
+        3, this->name(), target);
   }
 
-  // required int32 id = 2;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->id(), target);
-  }
-
-  // optional string email = 3;
-  if (has_email()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->email().data(), this->email().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->email(), target);
-  }
-
-  // repeated .ladybug5_network.Image Images = 4;
+  // repeated .ladybug5_network.pbImage Images = 4;
   for (int i = 0; i < this->images_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1245,33 +1304,33 @@ void ImageMessage::SerializeWithCachedSizes(
   return target;
 }
 
-int ImageMessage::ByteSize() const {
+int pbMessage::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required string name = 1;
-    if (has_name()) {
+    // required string camera = 1;
+    if (has_camera()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->name());
+          this->camera());
     }
 
-    // required int32 id = 2;
+    // optional int32 id = 2;
     if (has_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->id());
     }
 
-    // optional string email = 3;
-    if (has_email()) {
+    // optional string name = 3;
+    if (has_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->email());
+          this->name());
     }
 
   }
-  // repeated .ladybug5_network.Image Images = 4;
+  // repeated .ladybug5_network.pbImage Images = 4;
   total_size += 1 * this->images_size();
   for (int i = 0; i < this->images_size(); i++) {
     total_size +=
@@ -1290,10 +1349,10 @@ int ImageMessage::ByteSize() const {
   return total_size;
 }
 
-void ImageMessage::MergeFrom(const ::google::protobuf::Message& from) {
+void pbMessage::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const ImageMessage* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const ImageMessage*>(
+  const pbMessage* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pbMessage*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1302,37 +1361,37 @@ void ImageMessage::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void ImageMessage::MergeFrom(const ImageMessage& from) {
+void pbMessage::MergeFrom(const pbMessage& from) {
   GOOGLE_CHECK_NE(&from, this);
   images_.MergeFrom(from.images_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_name()) {
-      set_name(from.name());
+    if (from.has_camera()) {
+      set_camera(from.camera());
     }
     if (from.has_id()) {
       set_id(from.id());
     }
-    if (from.has_email()) {
-      set_email(from.email());
+    if (from.has_name()) {
+      set_name(from.name());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void ImageMessage::CopyFrom(const ::google::protobuf::Message& from) {
+void pbMessage::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ImageMessage::CopyFrom(const ImageMessage& from) {
+void pbMessage::CopyFrom(const pbMessage& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ImageMessage::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+bool pbMessage::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   for (int i = 0; i < images_size(); i++) {
     if (!this->images(i).IsInitialized()) return false;
@@ -1340,11 +1399,11 @@ bool ImageMessage::IsInitialized() const {
   return true;
 }
 
-void ImageMessage::Swap(ImageMessage* other) {
+void pbMessage::Swap(pbMessage* other) {
   if (other != this) {
-    std::swap(name_, other->name_);
+    std::swap(camera_, other->camera_);
     std::swap(id_, other->id_);
-    std::swap(email_, other->email_);
+    std::swap(name_, other->name_);
     images_.Swap(&other->images_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -1352,11 +1411,11 @@ void ImageMessage::Swap(ImageMessage* other) {
   }
 }
 
-::google::protobuf::Metadata ImageMessage::GetMetadata() const {
+::google::protobuf::Metadata pbMessage::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ImageMessage_descriptor_;
-  metadata.reflection = ImageMessage_reflection_;
+  metadata.descriptor = pbMessage_descriptor_;
+  metadata.reflection = pbMessage_reflection_;
   return metadata;
 }
 
@@ -1387,6 +1446,7 @@ void RequestImageMessage::SharedCtor() {
   _cached_size_ = 0;
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   id_ = 0;
+  images_ = 1;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1431,8 +1491,8 @@ void RequestImageMessage::Clear() {
       }
     }
     id_ = 0;
+    images_ = 1;
   }
-  images_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1459,7 +1519,7 @@ bool RequestImageMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // required int32 id = 2;
+      // optional int32 id = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1475,7 +1535,7 @@ bool RequestImageMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .ladybug5_network.ImageType images = 3;
+      // optional .ladybug5_network.ImageType images = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1485,21 +1545,13 @@ bool RequestImageMessage::MergePartialFromCodedStream(
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
           if (::ladybug5_network::ImageType_IsValid(value)) {
-            add_images(static_cast< ::ladybug5_network::ImageType >(value));
+            set_images(static_cast< ::ladybug5_network::ImageType >(value));
           } else {
             mutable_unknown_fields()->AddVarint(3, value);
           }
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedEnumNoInline(
-                 input,
-                 &::ladybug5_network::ImageType_IsValid,
-                 this->mutable_images())));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_images;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1531,15 +1583,15 @@ void RequestImageMessage::SerializeWithCachedSizes(
       1, this->name(), output);
   }
 
-  // required int32 id = 2;
+  // optional int32 id = 2;
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->id(), output);
   }
 
-  // repeated .ladybug5_network.ImageType images = 3;
-  for (int i = 0; i < this->images_size(); i++) {
+  // optional .ladybug5_network.ImageType images = 3;
+  if (has_images()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      3, this->images(i), output);
+      3, this->images(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1560,15 +1612,15 @@ void RequestImageMessage::SerializeWithCachedSizes(
         1, this->name(), target);
   }
 
-  // required int32 id = 2;
+  // optional int32 id = 2;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->id(), target);
   }
 
-  // repeated .ladybug5_network.ImageType images = 3;
-  for (int i = 0; i < this->images_size(); i++) {
+  // optional .ladybug5_network.ImageType images = 3;
+  if (has_images()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      3, this->images(i), target);
+      3, this->images(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1589,24 +1641,20 @@ int RequestImageMessage::ByteSize() const {
           this->name());
     }
 
-    // required int32 id = 2;
+    // optional int32 id = 2;
     if (has_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->id());
     }
 
-  }
-  // repeated .ladybug5_network.ImageType images = 3;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->images_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::EnumSize(
-        this->images(i));
+    // optional .ladybug5_network.ImageType images = 3;
+    if (has_images()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->images());
     }
-    total_size += 1 * this->images_size() + data_size;
-  }
 
+  }
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1632,13 +1680,15 @@ void RequestImageMessage::MergeFrom(const ::google::protobuf::Message& from) {
 
 void RequestImageMessage::MergeFrom(const RequestImageMessage& from) {
   GOOGLE_CHECK_NE(&from, this);
-  images_.MergeFrom(from.images_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
       set_name(from.name());
     }
     if (from.has_id()) {
       set_id(from.id());
+    }
+    if (from.has_images()) {
+      set_images(from.images());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1657,7 +1707,7 @@ void RequestImageMessage::CopyFrom(const RequestImageMessage& from) {
 }
 
 bool RequestImageMessage::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
@@ -1666,7 +1716,7 @@ void RequestImageMessage::Swap(RequestImageMessage* other) {
   if (other != this) {
     std::swap(name_, other->name_);
     std::swap(id_, other->id_);
-    images_.Swap(&other->images_);
+    std::swap(images_, other->images_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

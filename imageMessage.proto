@@ -30,23 +30,24 @@ enum ImageType{
 	optional uint64 ulCycleOffset = 5; // The cycle offset.
   };
 
-  message Image {
+  message pbImage {
 	optional int32 number = 6;
 	optional ImageType type = 7;
 	optional bytes image = 8;
 	optional uint32 size = 9;
 	optional LadybugTimeStamp time = 10;
+    optional string name = 11;
   };
   
-message ImageMessage {
-	required string name = 1;
-	required int32 id = 2;
-	optional string email = 3;
-	repeated Image Images = 4;
+message pbMessage {
+	required string camera = 1;
+	optional int32 id = 2;
+	optional string name = 3;
+	repeated pbImage Images = 4;
 };
 
 message RequestImageMessage {
 	required string name = 1;
-	required int32 id = 2;
-	repeated ImageType images = 3;
+	optional int32 id = 2;
+	optional ImageType images = 3;
 };
