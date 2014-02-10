@@ -21,7 +21,7 @@ enum ImageType{
 	 LADYBUG_ALL_CAMERAS_VIEW = 32768; 
 	 LADYBUG_ALL_OUTPUT_IMAGE = 2147483647; 
   };
-  
+    
    message LadybugTimeStamp {
 	required uint64 ulSeconds = 1; // The number of seconds since the epoch.
 	required uint64 ulMicroSeconds = 2; // The microseconds component.
@@ -37,6 +37,9 @@ enum ImageType{
 	optional uint32 size = 9;
 	optional LadybugTimeStamp time = 10;
     optional string name = 11;
+	optional uint32 hight = 12;
+	optional uint32 width = 13;
+	optional uint32 packages = 14;
   };
   
 message pbMessage {
@@ -51,3 +54,14 @@ message RequestImageMessage {
 	optional int32 id = 2;
 	optional ImageType images = 3;
 };
+
+message pbInternal{
+	required string camera = 1;
+	optional string image = 2;
+	optional ImageType type = 3;
+	optional LadybugTimeStamp time = 4;
+	optional uint32 size = 5;
+	optional uint32 hight = 6;
+	optional uint32 width = 7;
+};
+
