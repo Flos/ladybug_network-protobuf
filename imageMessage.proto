@@ -47,6 +47,7 @@ message pbImage {
 	optional uint32 width = 13;
 	optional uint32 packages = 14;
 	optional pbDisortion distortion = 15;
+	optional pbPosition position = 16;
 };
   
 message pbFloatTriblet{
@@ -62,6 +63,15 @@ message pbSensor{
 	optional pbFloatTriblet compass = 4;
 	optional pbFloatTriblet accelerometer = 5;
 	optional pbFloatTriblet gyroscope = 6;
+};
+
+message pbPosition{
+	required double Rx = 1;
+	required double Ry = 2;
+	required double Rz = 3;
+	required double Tx = 4;
+	required double Ty = 5;
+	required double Tz = 6;
 };
   
 message pbMessage {

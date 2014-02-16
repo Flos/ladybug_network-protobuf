@@ -39,6 +39,7 @@ class pbDisortion;
 class pbImage;
 class pbFloatTriblet;
 class pbSensor;
+class pbPosition;
 class pbMessage;
 
 enum ImageType {
@@ -442,6 +443,15 @@ class pbImage : public ::google::protobuf::Message {
   inline ::ladybug5_network::pbDisortion* release_distortion();
   inline void set_allocated_distortion(::ladybug5_network::pbDisortion* distortion);
 
+  // optional .ladybug5_network.pbPosition position = 16;
+  inline bool has_position() const;
+  inline void clear_position();
+  static const int kPositionFieldNumber = 16;
+  inline const ::ladybug5_network::pbPosition& position() const;
+  inline ::ladybug5_network::pbPosition* mutable_position();
+  inline ::ladybug5_network::pbPosition* release_position();
+  inline void set_allocated_position(::ladybug5_network::pbPosition* position);
+
   // @@protoc_insertion_point(class_scope:ladybug5_network.pbImage)
  private:
   inline void set_has_number();
@@ -462,6 +472,8 @@ class pbImage : public ::google::protobuf::Message {
   inline void clear_has_packages();
   inline void set_has_distortion();
   inline void clear_has_distortion();
+  inline void set_has_position();
+  inline void clear_has_position();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -474,9 +486,10 @@ class pbImage : public ::google::protobuf::Message {
   ::google::protobuf::uint32 width_;
   ::google::protobuf::uint32 packages_;
   ::ladybug5_network::pbDisortion* distortion_;
+  ::ladybug5_network::pbPosition* position_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
 
   friend void  protobuf_AddDesc_imageMessage_2eproto();
   friend void protobuf_AssignDesc_imageMessage_2eproto();
@@ -724,6 +737,138 @@ class pbSensor : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static pbSensor* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class pbPosition : public ::google::protobuf::Message {
+ public:
+  pbPosition();
+  virtual ~pbPosition();
+
+  pbPosition(const pbPosition& from);
+
+  inline pbPosition& operator=(const pbPosition& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pbPosition& default_instance();
+
+  void Swap(pbPosition* other);
+
+  // implements Message ----------------------------------------------
+
+  pbPosition* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pbPosition& from);
+  void MergeFrom(const pbPosition& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required double Rx = 1;
+  inline bool has_rx() const;
+  inline void clear_rx();
+  static const int kRxFieldNumber = 1;
+  inline double rx() const;
+  inline void set_rx(double value);
+
+  // required double Ry = 2;
+  inline bool has_ry() const;
+  inline void clear_ry();
+  static const int kRyFieldNumber = 2;
+  inline double ry() const;
+  inline void set_ry(double value);
+
+  // required double Rz = 3;
+  inline bool has_rz() const;
+  inline void clear_rz();
+  static const int kRzFieldNumber = 3;
+  inline double rz() const;
+  inline void set_rz(double value);
+
+  // required double Tx = 4;
+  inline bool has_tx() const;
+  inline void clear_tx();
+  static const int kTxFieldNumber = 4;
+  inline double tx() const;
+  inline void set_tx(double value);
+
+  // required double Ty = 5;
+  inline bool has_ty() const;
+  inline void clear_ty();
+  static const int kTyFieldNumber = 5;
+  inline double ty() const;
+  inline void set_ty(double value);
+
+  // required double Tz = 6;
+  inline bool has_tz() const;
+  inline void clear_tz();
+  static const int kTzFieldNumber = 6;
+  inline double tz() const;
+  inline void set_tz(double value);
+
+  // @@protoc_insertion_point(class_scope:ladybug5_network.pbPosition)
+ private:
+  inline void set_has_rx();
+  inline void clear_has_rx();
+  inline void set_has_ry();
+  inline void clear_has_ry();
+  inline void set_has_rz();
+  inline void clear_has_rz();
+  inline void set_has_tx();
+  inline void clear_has_tx();
+  inline void set_has_ty();
+  inline void clear_has_ty();
+  inline void set_has_tz();
+  inline void clear_has_tz();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  double rx_;
+  double ry_;
+  double rz_;
+  double tx_;
+  double ty_;
+  double tz_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_imageMessage_2eproto();
+  friend void protobuf_AssignDesc_imageMessage_2eproto();
+  friend void protobuf_ShutdownFile_imageMessage_2eproto();
+
+  void InitAsDefaultInstance();
+  static pbPosition* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1398,6 +1543,44 @@ inline void pbImage::set_allocated_distortion(::ladybug5_network::pbDisortion* d
   }
 }
 
+// optional .ladybug5_network.pbPosition position = 16;
+inline bool pbImage::has_position() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void pbImage::set_has_position() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void pbImage::clear_has_position() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void pbImage::clear_position() {
+  if (position_ != NULL) position_->::ladybug5_network::pbPosition::Clear();
+  clear_has_position();
+}
+inline const ::ladybug5_network::pbPosition& pbImage::position() const {
+  return position_ != NULL ? *position_ : *default_instance_->position_;
+}
+inline ::ladybug5_network::pbPosition* pbImage::mutable_position() {
+  set_has_position();
+  if (position_ == NULL) position_ = new ::ladybug5_network::pbPosition;
+  return position_;
+}
+inline ::ladybug5_network::pbPosition* pbImage::release_position() {
+  clear_has_position();
+  ::ladybug5_network::pbPosition* temp = position_;
+  position_ = NULL;
+  return temp;
+}
+inline void pbImage::set_allocated_position(::ladybug5_network::pbPosition* position) {
+  delete position_;
+  position_ = position;
+  if (position) {
+    set_has_position();
+  } else {
+    clear_has_position();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // pbFloatTriblet
@@ -1650,6 +1833,142 @@ inline void pbSensor::set_allocated_gyroscope(::ladybug5_network::pbFloatTriblet
   } else {
     clear_has_gyroscope();
   }
+}
+
+// -------------------------------------------------------------------
+
+// pbPosition
+
+// required double Rx = 1;
+inline bool pbPosition::has_rx() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbPosition::set_has_rx() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbPosition::clear_has_rx() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbPosition::clear_rx() {
+  rx_ = 0;
+  clear_has_rx();
+}
+inline double pbPosition::rx() const {
+  return rx_;
+}
+inline void pbPosition::set_rx(double value) {
+  set_has_rx();
+  rx_ = value;
+}
+
+// required double Ry = 2;
+inline bool pbPosition::has_ry() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pbPosition::set_has_ry() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pbPosition::clear_has_ry() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pbPosition::clear_ry() {
+  ry_ = 0;
+  clear_has_ry();
+}
+inline double pbPosition::ry() const {
+  return ry_;
+}
+inline void pbPosition::set_ry(double value) {
+  set_has_ry();
+  ry_ = value;
+}
+
+// required double Rz = 3;
+inline bool pbPosition::has_rz() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbPosition::set_has_rz() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbPosition::clear_has_rz() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbPosition::clear_rz() {
+  rz_ = 0;
+  clear_has_rz();
+}
+inline double pbPosition::rz() const {
+  return rz_;
+}
+inline void pbPosition::set_rz(double value) {
+  set_has_rz();
+  rz_ = value;
+}
+
+// required double Tx = 4;
+inline bool pbPosition::has_tx() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void pbPosition::set_has_tx() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void pbPosition::clear_has_tx() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void pbPosition::clear_tx() {
+  tx_ = 0;
+  clear_has_tx();
+}
+inline double pbPosition::tx() const {
+  return tx_;
+}
+inline void pbPosition::set_tx(double value) {
+  set_has_tx();
+  tx_ = value;
+}
+
+// required double Ty = 5;
+inline bool pbPosition::has_ty() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void pbPosition::set_has_ty() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void pbPosition::clear_has_ty() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void pbPosition::clear_ty() {
+  ty_ = 0;
+  clear_has_ty();
+}
+inline double pbPosition::ty() const {
+  return ty_;
+}
+inline void pbPosition::set_ty(double value) {
+  set_has_ty();
+  ty_ = value;
+}
+
+// required double Tz = 6;
+inline bool pbPosition::has_tz() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void pbPosition::set_has_tz() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void pbPosition::clear_has_tz() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void pbPosition::clear_tz() {
+  tz_ = 0;
+  clear_has_tz();
+}
+inline double pbPosition::tz() const {
+  return tz_;
+}
+inline void pbPosition::set_tz(double value) {
+  set_has_tz();
+  tz_ = value;
 }
 
 // -------------------------------------------------------------------
