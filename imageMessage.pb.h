@@ -35,9 +35,11 @@ void protobuf_AssignDesc_imageMessage_2eproto();
 void protobuf_ShutdownFile_imageMessage_2eproto();
 
 class LadybugTimeStamp;
+class pbDisortion;
 class pbImage;
+class pbFloatTriblet;
+class pbSensor;
 class pbMessage;
-class RequestImageMessage;
 
 enum ImageType {
   LADYBUG_RAW_CAM0 = 1,
@@ -199,6 +201,118 @@ class LadybugTimeStamp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class pbDisortion : public ::google::protobuf::Message {
+ public:
+  pbDisortion();
+  virtual ~pbDisortion();
+
+  pbDisortion(const pbDisortion& from);
+
+  inline pbDisortion& operator=(const pbDisortion& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pbDisortion& default_instance();
+
+  void Swap(pbDisortion* other);
+
+  // implements Message ----------------------------------------------
+
+  pbDisortion* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pbDisortion& from);
+  void MergeFrom(const pbDisortion& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional double focalX = 1;
+  inline bool has_focalx() const;
+  inline void clear_focalx();
+  static const int kFocalXFieldNumber = 1;
+  inline double focalx() const;
+  inline void set_focalx(double value);
+
+  // optional double focalY = 2;
+  inline bool has_focaly() const;
+  inline void clear_focaly();
+  static const int kFocalYFieldNumber = 2;
+  inline double focaly() const;
+  inline void set_focaly(double value);
+
+  // optional double centerX = 3;
+  inline bool has_centerx() const;
+  inline void clear_centerx();
+  static const int kCenterXFieldNumber = 3;
+  inline double centerx() const;
+  inline void set_centerx(double value);
+
+  // optional double centerY = 4;
+  inline bool has_centery() const;
+  inline void clear_centery();
+  static const int kCenterYFieldNumber = 4;
+  inline double centery() const;
+  inline void set_centery(double value);
+
+  // @@protoc_insertion_point(class_scope:ladybug5_network.pbDisortion)
+ private:
+  inline void set_has_focalx();
+  inline void clear_has_focalx();
+  inline void set_has_focaly();
+  inline void clear_has_focaly();
+  inline void set_has_centerx();
+  inline void clear_has_centerx();
+  inline void set_has_centery();
+  inline void clear_has_centery();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  double focalx_;
+  double focaly_;
+  double centerx_;
+  double centery_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_imageMessage_2eproto();
+  friend void protobuf_AssignDesc_imageMessage_2eproto();
+  friend void protobuf_ShutdownFile_imageMessage_2eproto();
+
+  void InitAsDefaultInstance();
+  static pbDisortion* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class pbImage : public ::google::protobuf::Message {
  public:
   pbImage();
@@ -286,15 +400,6 @@ class pbImage : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 size() const;
   inline void set_size(::google::protobuf::uint32 value);
 
-  // optional .ladybug5_network.LadybugTimeStamp time = 10;
-  inline bool has_time() const;
-  inline void clear_time();
-  static const int kTimeFieldNumber = 10;
-  inline const ::ladybug5_network::LadybugTimeStamp& time() const;
-  inline ::ladybug5_network::LadybugTimeStamp* mutable_time();
-  inline ::ladybug5_network::LadybugTimeStamp* release_time();
-  inline void set_allocated_time(::ladybug5_network::LadybugTimeStamp* time);
-
   // optional string name = 11;
   inline bool has_name() const;
   inline void clear_name();
@@ -307,6 +412,36 @@ class pbImage : public ::google::protobuf::Message {
   inline ::std::string* release_name();
   inline void set_allocated_name(::std::string* name);
 
+  // optional uint32 height = 12;
+  inline bool has_height() const;
+  inline void clear_height();
+  static const int kHeightFieldNumber = 12;
+  inline ::google::protobuf::uint32 height() const;
+  inline void set_height(::google::protobuf::uint32 value);
+
+  // optional uint32 width = 13;
+  inline bool has_width() const;
+  inline void clear_width();
+  static const int kWidthFieldNumber = 13;
+  inline ::google::protobuf::uint32 width() const;
+  inline void set_width(::google::protobuf::uint32 value);
+
+  // optional uint32 packages = 14;
+  inline bool has_packages() const;
+  inline void clear_packages();
+  static const int kPackagesFieldNumber = 14;
+  inline ::google::protobuf::uint32 packages() const;
+  inline void set_packages(::google::protobuf::uint32 value);
+
+  // optional .ladybug5_network.pbDisortion distortion = 15;
+  inline bool has_distortion() const;
+  inline void clear_distortion();
+  static const int kDistortionFieldNumber = 15;
+  inline const ::ladybug5_network::pbDisortion& distortion() const;
+  inline ::ladybug5_network::pbDisortion* mutable_distortion();
+  inline ::ladybug5_network::pbDisortion* release_distortion();
+  inline void set_allocated_distortion(::ladybug5_network::pbDisortion* distortion);
+
   // @@protoc_insertion_point(class_scope:ladybug5_network.pbImage)
  private:
   inline void set_has_number();
@@ -317,19 +452,268 @@ class pbImage : public ::google::protobuf::Message {
   inline void clear_has_image();
   inline void set_has_size();
   inline void clear_has_size();
-  inline void set_has_time();
-  inline void clear_has_time();
   inline void set_has_name();
   inline void clear_has_name();
+  inline void set_has_height();
+  inline void clear_has_height();
+  inline void set_has_width();
+  inline void clear_has_width();
+  inline void set_has_packages();
+  inline void clear_has_packages();
+  inline void set_has_distortion();
+  inline void clear_has_distortion();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 number_;
   int type_;
   ::std::string* image_;
-  ::ladybug5_network::LadybugTimeStamp* time_;
   ::std::string* name_;
   ::google::protobuf::uint32 size_;
+  ::google::protobuf::uint32 height_;
+  ::google::protobuf::uint32 width_;
+  ::google::protobuf::uint32 packages_;
+  ::ladybug5_network::pbDisortion* distortion_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+
+  friend void  protobuf_AddDesc_imageMessage_2eproto();
+  friend void protobuf_AssignDesc_imageMessage_2eproto();
+  friend void protobuf_ShutdownFile_imageMessage_2eproto();
+
+  void InitAsDefaultInstance();
+  static pbImage* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class pbFloatTriblet : public ::google::protobuf::Message {
+ public:
+  pbFloatTriblet();
+  virtual ~pbFloatTriblet();
+
+  pbFloatTriblet(const pbFloatTriblet& from);
+
+  inline pbFloatTriblet& operator=(const pbFloatTriblet& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pbFloatTriblet& default_instance();
+
+  void Swap(pbFloatTriblet* other);
+
+  // implements Message ----------------------------------------------
+
+  pbFloatTriblet* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pbFloatTriblet& from);
+  void MergeFrom(const pbFloatTriblet& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required float x = 1;
+  inline bool has_x() const;
+  inline void clear_x();
+  static const int kXFieldNumber = 1;
+  inline float x() const;
+  inline void set_x(float value);
+
+  // required float y = 2;
+  inline bool has_y() const;
+  inline void clear_y();
+  static const int kYFieldNumber = 2;
+  inline float y() const;
+  inline void set_y(float value);
+
+  // required float Z = 3;
+  inline bool has_z() const;
+  inline void clear_z();
+  static const int kZFieldNumber = 3;
+  inline float z() const;
+  inline void set_z(float value);
+
+  // @@protoc_insertion_point(class_scope:ladybug5_network.pbFloatTriblet)
+ private:
+  inline void set_has_x();
+  inline void clear_has_x();
+  inline void set_has_y();
+  inline void clear_has_y();
+  inline void set_has_z();
+  inline void clear_has_z();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  float x_;
+  float y_;
+  float z_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_imageMessage_2eproto();
+  friend void protobuf_AssignDesc_imageMessage_2eproto();
+  friend void protobuf_ShutdownFile_imageMessage_2eproto();
+
+  void InitAsDefaultInstance();
+  static pbFloatTriblet* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class pbSensor : public ::google::protobuf::Message {
+ public:
+  pbSensor();
+  virtual ~pbSensor();
+
+  pbSensor(const pbSensor& from);
+
+  inline pbSensor& operator=(const pbSensor& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pbSensor& default_instance();
+
+  void Swap(pbSensor* other);
+
+  // implements Message ----------------------------------------------
+
+  pbSensor* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pbSensor& from);
+  void MergeFrom(const pbSensor& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional float temperature = 1;
+  inline bool has_temperature() const;
+  inline void clear_temperature();
+  static const int kTemperatureFieldNumber = 1;
+  inline float temperature() const;
+  inline void set_temperature(float value);
+
+  // optional float barometer = 2;
+  inline bool has_barometer() const;
+  inline void clear_barometer();
+  static const int kBarometerFieldNumber = 2;
+  inline float barometer() const;
+  inline void set_barometer(float value);
+
+  // optional float humidity = 3;
+  inline bool has_humidity() const;
+  inline void clear_humidity();
+  static const int kHumidityFieldNumber = 3;
+  inline float humidity() const;
+  inline void set_humidity(float value);
+
+  // optional .ladybug5_network.pbFloatTriblet compass = 4;
+  inline bool has_compass() const;
+  inline void clear_compass();
+  static const int kCompassFieldNumber = 4;
+  inline const ::ladybug5_network::pbFloatTriblet& compass() const;
+  inline ::ladybug5_network::pbFloatTriblet* mutable_compass();
+  inline ::ladybug5_network::pbFloatTriblet* release_compass();
+  inline void set_allocated_compass(::ladybug5_network::pbFloatTriblet* compass);
+
+  // optional .ladybug5_network.pbFloatTriblet accelerometer = 5;
+  inline bool has_accelerometer() const;
+  inline void clear_accelerometer();
+  static const int kAccelerometerFieldNumber = 5;
+  inline const ::ladybug5_network::pbFloatTriblet& accelerometer() const;
+  inline ::ladybug5_network::pbFloatTriblet* mutable_accelerometer();
+  inline ::ladybug5_network::pbFloatTriblet* release_accelerometer();
+  inline void set_allocated_accelerometer(::ladybug5_network::pbFloatTriblet* accelerometer);
+
+  // optional .ladybug5_network.pbFloatTriblet gyroscope = 6;
+  inline bool has_gyroscope() const;
+  inline void clear_gyroscope();
+  static const int kGyroscopeFieldNumber = 6;
+  inline const ::ladybug5_network::pbFloatTriblet& gyroscope() const;
+  inline ::ladybug5_network::pbFloatTriblet* mutable_gyroscope();
+  inline ::ladybug5_network::pbFloatTriblet* release_gyroscope();
+  inline void set_allocated_gyroscope(::ladybug5_network::pbFloatTriblet* gyroscope);
+
+  // @@protoc_insertion_point(class_scope:ladybug5_network.pbSensor)
+ private:
+  inline void set_has_temperature();
+  inline void clear_has_temperature();
+  inline void set_has_barometer();
+  inline void clear_has_barometer();
+  inline void set_has_humidity();
+  inline void clear_has_humidity();
+  inline void set_has_compass();
+  inline void clear_has_compass();
+  inline void set_has_accelerometer();
+  inline void clear_has_accelerometer();
+  inline void set_has_gyroscope();
+  inline void clear_has_gyroscope();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  float temperature_;
+  float barometer_;
+  ::ladybug5_network::pbFloatTriblet* compass_;
+  ::ladybug5_network::pbFloatTriblet* accelerometer_;
+  ::ladybug5_network::pbFloatTriblet* gyroscope_;
+  float humidity_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
@@ -339,7 +723,7 @@ class pbImage : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_imageMessage_2eproto();
 
   void InitAsDefaultInstance();
-  static pbImage* default_instance_;
+  static pbSensor* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -409,7 +793,7 @@ class pbMessage : public ::google::protobuf::Message {
   inline ::std::string* release_camera();
   inline void set_allocated_camera(::std::string* camera);
 
-  // optional int32 id = 2;
+  // required int32 id = 2;
   inline bool has_id() const;
   inline void clear_id();
   static const int kIdFieldNumber = 2;
@@ -440,6 +824,24 @@ class pbMessage : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::ladybug5_network::pbImage >*
       mutable_images();
 
+  // required .ladybug5_network.LadybugTimeStamp time = 5;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 5;
+  inline const ::ladybug5_network::LadybugTimeStamp& time() const;
+  inline ::ladybug5_network::LadybugTimeStamp* mutable_time();
+  inline ::ladybug5_network::LadybugTimeStamp* release_time();
+  inline void set_allocated_time(::ladybug5_network::LadybugTimeStamp* time);
+
+  // optional .ladybug5_network.pbSensor sensors = 6;
+  inline bool has_sensors() const;
+  inline void clear_sensors();
+  static const int kSensorsFieldNumber = 6;
+  inline const ::ladybug5_network::pbSensor& sensors() const;
+  inline ::ladybug5_network::pbSensor* mutable_sensors();
+  inline ::ladybug5_network::pbSensor* release_sensors();
+  inline void set_allocated_sensors(::ladybug5_network::pbSensor* sensors);
+
   // @@protoc_insertion_point(class_scope:ladybug5_network.pbMessage)
  private:
   inline void set_has_camera();
@@ -448,16 +850,22 @@ class pbMessage : public ::google::protobuf::Message {
   inline void clear_has_id();
   inline void set_has_name();
   inline void clear_has_name();
+  inline void set_has_time();
+  inline void clear_has_time();
+  inline void set_has_sensors();
+  inline void clear_has_sensors();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* camera_;
   ::std::string* name_;
   ::google::protobuf::RepeatedPtrField< ::ladybug5_network::pbImage > images_;
+  ::ladybug5_network::LadybugTimeStamp* time_;
+  ::ladybug5_network::pbSensor* sensors_;
   ::google::protobuf::int32 id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_imageMessage_2eproto();
   friend void protobuf_AssignDesc_imageMessage_2eproto();
@@ -465,113 +873,6 @@ class pbMessage : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static pbMessage* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class RequestImageMessage : public ::google::protobuf::Message {
- public:
-  RequestImageMessage();
-  virtual ~RequestImageMessage();
-
-  RequestImageMessage(const RequestImageMessage& from);
-
-  inline RequestImageMessage& operator=(const RequestImageMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const RequestImageMessage& default_instance();
-
-  void Swap(RequestImageMessage* other);
-
-  // implements Message ----------------------------------------------
-
-  RequestImageMessage* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const RequestImageMessage& from);
-  void MergeFrom(const RequestImageMessage& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required string name = 1;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 1;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
-
-  // optional int32 id = 2;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 2;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
-
-  // optional .ladybug5_network.ImageType images = 3;
-  inline bool has_images() const;
-  inline void clear_images();
-  static const int kImagesFieldNumber = 3;
-  inline ::ladybug5_network::ImageType images() const;
-  inline void set_images(::ladybug5_network::ImageType value);
-
-  // @@protoc_insertion_point(class_scope:ladybug5_network.RequestImageMessage)
- private:
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_images();
-  inline void clear_has_images();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* name_;
-  ::google::protobuf::int32 id_;
-  int images_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
-
-  friend void  protobuf_AddDesc_imageMessage_2eproto();
-  friend void protobuf_AssignDesc_imageMessage_2eproto();
-  friend void protobuf_ShutdownFile_imageMessage_2eproto();
-
-  void InitAsDefaultInstance();
-  static RequestImageMessage* default_instance_;
 };
 // ===================================================================
 
@@ -688,6 +989,98 @@ inline ::google::protobuf::uint64 LadybugTimeStamp::ulcycleoffset() const {
 inline void LadybugTimeStamp::set_ulcycleoffset(::google::protobuf::uint64 value) {
   set_has_ulcycleoffset();
   ulcycleoffset_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// pbDisortion
+
+// optional double focalX = 1;
+inline bool pbDisortion::has_focalx() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbDisortion::set_has_focalx() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbDisortion::clear_has_focalx() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbDisortion::clear_focalx() {
+  focalx_ = 0;
+  clear_has_focalx();
+}
+inline double pbDisortion::focalx() const {
+  return focalx_;
+}
+inline void pbDisortion::set_focalx(double value) {
+  set_has_focalx();
+  focalx_ = value;
+}
+
+// optional double focalY = 2;
+inline bool pbDisortion::has_focaly() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pbDisortion::set_has_focaly() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pbDisortion::clear_has_focaly() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pbDisortion::clear_focaly() {
+  focaly_ = 0;
+  clear_has_focaly();
+}
+inline double pbDisortion::focaly() const {
+  return focaly_;
+}
+inline void pbDisortion::set_focaly(double value) {
+  set_has_focaly();
+  focaly_ = value;
+}
+
+// optional double centerX = 3;
+inline bool pbDisortion::has_centerx() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbDisortion::set_has_centerx() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbDisortion::clear_has_centerx() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbDisortion::clear_centerx() {
+  centerx_ = 0;
+  clear_has_centerx();
+}
+inline double pbDisortion::centerx() const {
+  return centerx_;
+}
+inline void pbDisortion::set_centerx(double value) {
+  set_has_centerx();
+  centerx_ = value;
+}
+
+// optional double centerY = 4;
+inline bool pbDisortion::has_centery() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void pbDisortion::set_has_centery() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void pbDisortion::clear_has_centery() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void pbDisortion::clear_centery() {
+  centery_ = 0;
+  clear_has_centery();
+}
+inline double pbDisortion::centery() const {
+  return centery_;
+}
+inline void pbDisortion::set_centery(double value) {
+  set_has_centery();
+  centery_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -831,53 +1224,15 @@ inline void pbImage::set_size(::google::protobuf::uint32 value) {
   size_ = value;
 }
 
-// optional .ladybug5_network.LadybugTimeStamp time = 10;
-inline bool pbImage::has_time() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void pbImage::set_has_time() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void pbImage::clear_has_time() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void pbImage::clear_time() {
-  if (time_ != NULL) time_->::ladybug5_network::LadybugTimeStamp::Clear();
-  clear_has_time();
-}
-inline const ::ladybug5_network::LadybugTimeStamp& pbImage::time() const {
-  return time_ != NULL ? *time_ : *default_instance_->time_;
-}
-inline ::ladybug5_network::LadybugTimeStamp* pbImage::mutable_time() {
-  set_has_time();
-  if (time_ == NULL) time_ = new ::ladybug5_network::LadybugTimeStamp;
-  return time_;
-}
-inline ::ladybug5_network::LadybugTimeStamp* pbImage::release_time() {
-  clear_has_time();
-  ::ladybug5_network::LadybugTimeStamp* temp = time_;
-  time_ = NULL;
-  return temp;
-}
-inline void pbImage::set_allocated_time(::ladybug5_network::LadybugTimeStamp* time) {
-  delete time_;
-  time_ = time;
-  if (time) {
-    set_has_time();
-  } else {
-    clear_has_time();
-  }
-}
-
 // optional string name = 11;
 inline bool pbImage::has_name() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void pbImage::set_has_name() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void pbImage::clear_has_name() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void pbImage::clear_name() {
   if (name_ != &::google::protobuf::internal::kEmptyString) {
@@ -936,6 +1291,364 @@ inline void pbImage::set_allocated_name(::std::string* name) {
   } else {
     clear_has_name();
     name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 height = 12;
+inline bool pbImage::has_height() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void pbImage::set_has_height() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void pbImage::clear_has_height() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void pbImage::clear_height() {
+  height_ = 0u;
+  clear_has_height();
+}
+inline ::google::protobuf::uint32 pbImage::height() const {
+  return height_;
+}
+inline void pbImage::set_height(::google::protobuf::uint32 value) {
+  set_has_height();
+  height_ = value;
+}
+
+// optional uint32 width = 13;
+inline bool pbImage::has_width() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void pbImage::set_has_width() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void pbImage::clear_has_width() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void pbImage::clear_width() {
+  width_ = 0u;
+  clear_has_width();
+}
+inline ::google::protobuf::uint32 pbImage::width() const {
+  return width_;
+}
+inline void pbImage::set_width(::google::protobuf::uint32 value) {
+  set_has_width();
+  width_ = value;
+}
+
+// optional uint32 packages = 14;
+inline bool pbImage::has_packages() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void pbImage::set_has_packages() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void pbImage::clear_has_packages() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void pbImage::clear_packages() {
+  packages_ = 0u;
+  clear_has_packages();
+}
+inline ::google::protobuf::uint32 pbImage::packages() const {
+  return packages_;
+}
+inline void pbImage::set_packages(::google::protobuf::uint32 value) {
+  set_has_packages();
+  packages_ = value;
+}
+
+// optional .ladybug5_network.pbDisortion distortion = 15;
+inline bool pbImage::has_distortion() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void pbImage::set_has_distortion() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void pbImage::clear_has_distortion() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void pbImage::clear_distortion() {
+  if (distortion_ != NULL) distortion_->::ladybug5_network::pbDisortion::Clear();
+  clear_has_distortion();
+}
+inline const ::ladybug5_network::pbDisortion& pbImage::distortion() const {
+  return distortion_ != NULL ? *distortion_ : *default_instance_->distortion_;
+}
+inline ::ladybug5_network::pbDisortion* pbImage::mutable_distortion() {
+  set_has_distortion();
+  if (distortion_ == NULL) distortion_ = new ::ladybug5_network::pbDisortion;
+  return distortion_;
+}
+inline ::ladybug5_network::pbDisortion* pbImage::release_distortion() {
+  clear_has_distortion();
+  ::ladybug5_network::pbDisortion* temp = distortion_;
+  distortion_ = NULL;
+  return temp;
+}
+inline void pbImage::set_allocated_distortion(::ladybug5_network::pbDisortion* distortion) {
+  delete distortion_;
+  distortion_ = distortion;
+  if (distortion) {
+    set_has_distortion();
+  } else {
+    clear_has_distortion();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// pbFloatTriblet
+
+// required float x = 1;
+inline bool pbFloatTriblet::has_x() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbFloatTriblet::set_has_x() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbFloatTriblet::clear_has_x() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbFloatTriblet::clear_x() {
+  x_ = 0;
+  clear_has_x();
+}
+inline float pbFloatTriblet::x() const {
+  return x_;
+}
+inline void pbFloatTriblet::set_x(float value) {
+  set_has_x();
+  x_ = value;
+}
+
+// required float y = 2;
+inline bool pbFloatTriblet::has_y() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pbFloatTriblet::set_has_y() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pbFloatTriblet::clear_has_y() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pbFloatTriblet::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline float pbFloatTriblet::y() const {
+  return y_;
+}
+inline void pbFloatTriblet::set_y(float value) {
+  set_has_y();
+  y_ = value;
+}
+
+// required float Z = 3;
+inline bool pbFloatTriblet::has_z() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbFloatTriblet::set_has_z() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbFloatTriblet::clear_has_z() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbFloatTriblet::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline float pbFloatTriblet::z() const {
+  return z_;
+}
+inline void pbFloatTriblet::set_z(float value) {
+  set_has_z();
+  z_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// pbSensor
+
+// optional float temperature = 1;
+inline bool pbSensor::has_temperature() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbSensor::set_has_temperature() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbSensor::clear_has_temperature() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbSensor::clear_temperature() {
+  temperature_ = 0;
+  clear_has_temperature();
+}
+inline float pbSensor::temperature() const {
+  return temperature_;
+}
+inline void pbSensor::set_temperature(float value) {
+  set_has_temperature();
+  temperature_ = value;
+}
+
+// optional float barometer = 2;
+inline bool pbSensor::has_barometer() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pbSensor::set_has_barometer() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pbSensor::clear_has_barometer() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pbSensor::clear_barometer() {
+  barometer_ = 0;
+  clear_has_barometer();
+}
+inline float pbSensor::barometer() const {
+  return barometer_;
+}
+inline void pbSensor::set_barometer(float value) {
+  set_has_barometer();
+  barometer_ = value;
+}
+
+// optional float humidity = 3;
+inline bool pbSensor::has_humidity() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbSensor::set_has_humidity() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbSensor::clear_has_humidity() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbSensor::clear_humidity() {
+  humidity_ = 0;
+  clear_has_humidity();
+}
+inline float pbSensor::humidity() const {
+  return humidity_;
+}
+inline void pbSensor::set_humidity(float value) {
+  set_has_humidity();
+  humidity_ = value;
+}
+
+// optional .ladybug5_network.pbFloatTriblet compass = 4;
+inline bool pbSensor::has_compass() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void pbSensor::set_has_compass() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void pbSensor::clear_has_compass() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void pbSensor::clear_compass() {
+  if (compass_ != NULL) compass_->::ladybug5_network::pbFloatTriblet::Clear();
+  clear_has_compass();
+}
+inline const ::ladybug5_network::pbFloatTriblet& pbSensor::compass() const {
+  return compass_ != NULL ? *compass_ : *default_instance_->compass_;
+}
+inline ::ladybug5_network::pbFloatTriblet* pbSensor::mutable_compass() {
+  set_has_compass();
+  if (compass_ == NULL) compass_ = new ::ladybug5_network::pbFloatTriblet;
+  return compass_;
+}
+inline ::ladybug5_network::pbFloatTriblet* pbSensor::release_compass() {
+  clear_has_compass();
+  ::ladybug5_network::pbFloatTriblet* temp = compass_;
+  compass_ = NULL;
+  return temp;
+}
+inline void pbSensor::set_allocated_compass(::ladybug5_network::pbFloatTriblet* compass) {
+  delete compass_;
+  compass_ = compass;
+  if (compass) {
+    set_has_compass();
+  } else {
+    clear_has_compass();
+  }
+}
+
+// optional .ladybug5_network.pbFloatTriblet accelerometer = 5;
+inline bool pbSensor::has_accelerometer() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void pbSensor::set_has_accelerometer() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void pbSensor::clear_has_accelerometer() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void pbSensor::clear_accelerometer() {
+  if (accelerometer_ != NULL) accelerometer_->::ladybug5_network::pbFloatTriblet::Clear();
+  clear_has_accelerometer();
+}
+inline const ::ladybug5_network::pbFloatTriblet& pbSensor::accelerometer() const {
+  return accelerometer_ != NULL ? *accelerometer_ : *default_instance_->accelerometer_;
+}
+inline ::ladybug5_network::pbFloatTriblet* pbSensor::mutable_accelerometer() {
+  set_has_accelerometer();
+  if (accelerometer_ == NULL) accelerometer_ = new ::ladybug5_network::pbFloatTriblet;
+  return accelerometer_;
+}
+inline ::ladybug5_network::pbFloatTriblet* pbSensor::release_accelerometer() {
+  clear_has_accelerometer();
+  ::ladybug5_network::pbFloatTriblet* temp = accelerometer_;
+  accelerometer_ = NULL;
+  return temp;
+}
+inline void pbSensor::set_allocated_accelerometer(::ladybug5_network::pbFloatTriblet* accelerometer) {
+  delete accelerometer_;
+  accelerometer_ = accelerometer;
+  if (accelerometer) {
+    set_has_accelerometer();
+  } else {
+    clear_has_accelerometer();
+  }
+}
+
+// optional .ladybug5_network.pbFloatTriblet gyroscope = 6;
+inline bool pbSensor::has_gyroscope() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void pbSensor::set_has_gyroscope() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void pbSensor::clear_has_gyroscope() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void pbSensor::clear_gyroscope() {
+  if (gyroscope_ != NULL) gyroscope_->::ladybug5_network::pbFloatTriblet::Clear();
+  clear_has_gyroscope();
+}
+inline const ::ladybug5_network::pbFloatTriblet& pbSensor::gyroscope() const {
+  return gyroscope_ != NULL ? *gyroscope_ : *default_instance_->gyroscope_;
+}
+inline ::ladybug5_network::pbFloatTriblet* pbSensor::mutable_gyroscope() {
+  set_has_gyroscope();
+  if (gyroscope_ == NULL) gyroscope_ = new ::ladybug5_network::pbFloatTriblet;
+  return gyroscope_;
+}
+inline ::ladybug5_network::pbFloatTriblet* pbSensor::release_gyroscope() {
+  clear_has_gyroscope();
+  ::ladybug5_network::pbFloatTriblet* temp = gyroscope_;
+  gyroscope_ = NULL;
+  return temp;
+}
+inline void pbSensor::set_allocated_gyroscope(::ladybug5_network::pbFloatTriblet* gyroscope) {
+  delete gyroscope_;
+  gyroscope_ = gyroscope;
+  if (gyroscope) {
+    set_has_gyroscope();
+  } else {
+    clear_has_gyroscope();
   }
 }
 
@@ -1013,7 +1726,7 @@ inline void pbMessage::set_allocated_camera(::std::string* camera) {
   }
 }
 
-// optional int32 id = 2;
+// required int32 id = 2;
 inline bool pbMessage::has_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1130,123 +1843,80 @@ pbMessage::mutable_images() {
   return &images_;
 }
 
-// -------------------------------------------------------------------
-
-// RequestImageMessage
-
-// required string name = 1;
-inline bool RequestImageMessage::has_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// required .ladybug5_network.LadybugTimeStamp time = 5;
+inline bool pbMessage::has_time() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void RequestImageMessage::set_has_name() {
-  _has_bits_[0] |= 0x00000001u;
+inline void pbMessage::set_has_time() {
+  _has_bits_[0] |= 0x00000010u;
 }
-inline void RequestImageMessage::clear_has_name() {
-  _has_bits_[0] &= ~0x00000001u;
+inline void pbMessage::clear_has_time() {
+  _has_bits_[0] &= ~0x00000010u;
 }
-inline void RequestImageMessage::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
-  }
-  clear_has_name();
+inline void pbMessage::clear_time() {
+  if (time_ != NULL) time_->::ladybug5_network::LadybugTimeStamp::Clear();
+  clear_has_time();
 }
-inline const ::std::string& RequestImageMessage::name() const {
-  return *name_;
+inline const ::ladybug5_network::LadybugTimeStamp& pbMessage::time() const {
+  return time_ != NULL ? *time_ : *default_instance_->time_;
 }
-inline void RequestImageMessage::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
-  }
-  name_->assign(value);
+inline ::ladybug5_network::LadybugTimeStamp* pbMessage::mutable_time() {
+  set_has_time();
+  if (time_ == NULL) time_ = new ::ladybug5_network::LadybugTimeStamp;
+  return time_;
 }
-inline void RequestImageMessage::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
-  }
-  name_->assign(value);
+inline ::ladybug5_network::LadybugTimeStamp* pbMessage::release_time() {
+  clear_has_time();
+  ::ladybug5_network::LadybugTimeStamp* temp = time_;
+  time_ = NULL;
+  return temp;
 }
-inline void RequestImageMessage::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
-  }
-  name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* RequestImageMessage::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
-  }
-  return name_;
-}
-inline ::std::string* RequestImageMessage::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
+inline void pbMessage::set_allocated_time(::ladybug5_network::LadybugTimeStamp* time) {
+  delete time_;
+  time_ = time;
+  if (time) {
+    set_has_time();
   } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
+    clear_has_time();
   }
 }
-inline void RequestImageMessage::set_allocated_name(::std::string* name) {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
-  }
-  if (name) {
-    set_has_name();
-    name_ = name;
+
+// optional .ladybug5_network.pbSensor sensors = 6;
+inline bool pbMessage::has_sensors() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void pbMessage::set_has_sensors() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void pbMessage::clear_has_sensors() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void pbMessage::clear_sensors() {
+  if (sensors_ != NULL) sensors_->::ladybug5_network::pbSensor::Clear();
+  clear_has_sensors();
+}
+inline const ::ladybug5_network::pbSensor& pbMessage::sensors() const {
+  return sensors_ != NULL ? *sensors_ : *default_instance_->sensors_;
+}
+inline ::ladybug5_network::pbSensor* pbMessage::mutable_sensors() {
+  set_has_sensors();
+  if (sensors_ == NULL) sensors_ = new ::ladybug5_network::pbSensor;
+  return sensors_;
+}
+inline ::ladybug5_network::pbSensor* pbMessage::release_sensors() {
+  clear_has_sensors();
+  ::ladybug5_network::pbSensor* temp = sensors_;
+  sensors_ = NULL;
+  return temp;
+}
+inline void pbMessage::set_allocated_sensors(::ladybug5_network::pbSensor* sensors) {
+  delete sensors_;
+  sensors_ = sensors;
+  if (sensors) {
+    set_has_sensors();
   } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_sensors();
   }
-}
-
-// optional int32 id = 2;
-inline bool RequestImageMessage::has_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void RequestImageMessage::set_has_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void RequestImageMessage::clear_has_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void RequestImageMessage::clear_id() {
-  id_ = 0;
-  clear_has_id();
-}
-inline ::google::protobuf::int32 RequestImageMessage::id() const {
-  return id_;
-}
-inline void RequestImageMessage::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
-}
-
-// optional .ladybug5_network.ImageType images = 3;
-inline bool RequestImageMessage::has_images() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void RequestImageMessage::set_has_images() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void RequestImageMessage::clear_has_images() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void RequestImageMessage::clear_images() {
-  images_ = 1;
-  clear_has_images();
-}
-inline ::ladybug5_network::ImageType RequestImageMessage::images() const {
-  return static_cast< ::ladybug5_network::ImageType >(images_);
-}
-inline void RequestImageMessage::set_images(::ladybug5_network::ImageType value) {
-  assert(::ladybug5_network::ImageType_IsValid(value));
-  set_has_images();
-  images_ = value;
 }
 
 
