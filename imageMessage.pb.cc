@@ -259,8 +259,8 @@ void protobuf_AddDesc_imageMessage_2eproto() {
     "dybug5_network.pbDisortion\022.\n\010position\030\020"
     " \001(\0132\034.ladybug5_network.pbPosition\"1\n\016pb"
     "FloatTriblet\022\t\n\001x\030\001 \002(\002\022\t\n\001y\030\002 \002(\002\022\t\n\001Z\030"
-    "\003 \002(\002\"\345\001\n\010pbSensor\022\023\n\013temperature\030\001 \001(\002\022"
-    "\021\n\tbarometer\030\002 \001(\002\022\020\n\010humidity\030\003 \001(\002\0221\n\007"
+    "\003 \002(\002\"\345\001\n\010pbSensor\022\023\n\013temperature\030\001 \001(\r\022"
+    "\021\n\tbarometer\030\002 \001(\r\022\020\n\010humidity\030\003 \001(\r\0221\n\007"
     "compass\030\004 \001(\0132 .ladybug5_network.pbFloat"
     "Triblet\0227\n\raccelerometer\030\005 \001(\0132 .ladybug"
     "5_network.pbFloatTriblet\0223\n\tgyroscope\030\006 "
@@ -1962,9 +1962,9 @@ pbSensor::pbSensor(const pbSensor& from)
 
 void pbSensor::SharedCtor() {
   _cached_size_ = 0;
-  temperature_ = 0;
-  barometer_ = 0;
-  humidity_ = 0;
+  temperature_ = 0u;
+  barometer_ = 0u;
+  humidity_ = 0u;
   compass_ = NULL;
   accelerometer_ = NULL;
   gyroscope_ = NULL;
@@ -2006,9 +2006,9 @@ pbSensor* pbSensor::New() const {
 
 void pbSensor::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    temperature_ = 0;
-    barometer_ = 0;
-    humidity_ = 0;
+    temperature_ = 0u;
+    barometer_ = 0u;
+    humidity_ = 0u;
     if (has_compass()) {
       if (compass_ != NULL) compass_->::ladybug5_network::pbFloatTriblet::Clear();
     }
@@ -2029,44 +2029,44 @@ bool pbSensor::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional float temperature = 1;
+      // optional uint32 temperature = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &temperature_)));
           set_has_temperature();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(21)) goto parse_barometer;
+        if (input->ExpectTag(16)) goto parse_barometer;
         break;
       }
 
-      // optional float barometer = 2;
+      // optional uint32 barometer = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_barometer:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &barometer_)));
           set_has_barometer();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(29)) goto parse_humidity;
+        if (input->ExpectTag(24)) goto parse_humidity;
         break;
       }
 
-      // optional float humidity = 3;
+      // optional uint32 humidity = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_humidity:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &humidity_)));
           set_has_humidity();
         } else {
@@ -2136,19 +2136,19 @@ bool pbSensor::MergePartialFromCodedStream(
 
 void pbSensor::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional float temperature = 1;
+  // optional uint32 temperature = 1;
   if (has_temperature()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->temperature(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->temperature(), output);
   }
 
-  // optional float barometer = 2;
+  // optional uint32 barometer = 2;
   if (has_barometer()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->barometer(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->barometer(), output);
   }
 
-  // optional float humidity = 3;
+  // optional uint32 humidity = 3;
   if (has_humidity()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->humidity(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->humidity(), output);
   }
 
   // optional .ladybug5_network.pbFloatTriblet compass = 4;
@@ -2177,19 +2177,19 @@ void pbSensor::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* pbSensor::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional float temperature = 1;
+  // optional uint32 temperature = 1;
   if (has_temperature()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->temperature(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->temperature(), target);
   }
 
-  // optional float barometer = 2;
+  // optional uint32 barometer = 2;
   if (has_barometer()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->barometer(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->barometer(), target);
   }
 
-  // optional float humidity = 3;
+  // optional uint32 humidity = 3;
   if (has_humidity()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->humidity(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->humidity(), target);
   }
 
   // optional .ladybug5_network.pbFloatTriblet compass = 4;
@@ -2224,19 +2224,25 @@ int pbSensor::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional float temperature = 1;
+    // optional uint32 temperature = 1;
     if (has_temperature()) {
-      total_size += 1 + 4;
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->temperature());
     }
 
-    // optional float barometer = 2;
+    // optional uint32 barometer = 2;
     if (has_barometer()) {
-      total_size += 1 + 4;
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->barometer());
     }
 
-    // optional float humidity = 3;
+    // optional uint32 humidity = 3;
     if (has_humidity()) {
-      total_size += 1 + 4;
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->humidity());
     }
 
     // optional .ladybug5_network.pbFloatTriblet compass = 4;

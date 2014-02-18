@@ -57,9 +57,9 @@ message pbFloatTriblet{
 };
   
 message pbSensor{
-	optional float temperature = 1;
-	optional float barometer = 2;
-	optional float humidity = 3;
+	optional uint32 temperature = 1;
+	optional uint32 barometer = 2;
+	optional uint32 humidity = 3;
 	optional pbFloatTriblet compass = 4;
 	optional pbFloatTriblet accelerometer = 5;
 	optional pbFloatTriblet gyroscope = 6;

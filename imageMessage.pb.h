@@ -656,26 +656,26 @@ class pbSensor : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional float temperature = 1;
+  // optional uint32 temperature = 1;
   inline bool has_temperature() const;
   inline void clear_temperature();
   static const int kTemperatureFieldNumber = 1;
-  inline float temperature() const;
-  inline void set_temperature(float value);
+  inline ::google::protobuf::uint32 temperature() const;
+  inline void set_temperature(::google::protobuf::uint32 value);
 
-  // optional float barometer = 2;
+  // optional uint32 barometer = 2;
   inline bool has_barometer() const;
   inline void clear_barometer();
   static const int kBarometerFieldNumber = 2;
-  inline float barometer() const;
-  inline void set_barometer(float value);
+  inline ::google::protobuf::uint32 barometer() const;
+  inline void set_barometer(::google::protobuf::uint32 value);
 
-  // optional float humidity = 3;
+  // optional uint32 humidity = 3;
   inline bool has_humidity() const;
   inline void clear_humidity();
   static const int kHumidityFieldNumber = 3;
-  inline float humidity() const;
-  inline void set_humidity(float value);
+  inline ::google::protobuf::uint32 humidity() const;
+  inline void set_humidity(::google::protobuf::uint32 value);
 
   // optional .ladybug5_network.pbFloatTriblet compass = 4;
   inline bool has_compass() const;
@@ -721,12 +721,12 @@ class pbSensor : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  float temperature_;
-  float barometer_;
+  ::google::protobuf::uint32 temperature_;
+  ::google::protobuf::uint32 barometer_;
   ::ladybug5_network::pbFloatTriblet* compass_;
   ::ladybug5_network::pbFloatTriblet* accelerometer_;
   ::ladybug5_network::pbFloatTriblet* gyroscope_;
-  float humidity_;
+  ::google::protobuf::uint32 humidity_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
@@ -1655,7 +1655,7 @@ inline void pbFloatTriblet::set_z(float value) {
 
 // pbSensor
 
-// optional float temperature = 1;
+// optional uint32 temperature = 1;
 inline bool pbSensor::has_temperature() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1666,18 +1666,18 @@ inline void pbSensor::clear_has_temperature() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void pbSensor::clear_temperature() {
-  temperature_ = 0;
+  temperature_ = 0u;
   clear_has_temperature();
 }
-inline float pbSensor::temperature() const {
+inline ::google::protobuf::uint32 pbSensor::temperature() const {
   return temperature_;
 }
-inline void pbSensor::set_temperature(float value) {
+inline void pbSensor::set_temperature(::google::protobuf::uint32 value) {
   set_has_temperature();
   temperature_ = value;
 }
 
-// optional float barometer = 2;
+// optional uint32 barometer = 2;
 inline bool pbSensor::has_barometer() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1688,18 +1688,18 @@ inline void pbSensor::clear_has_barometer() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void pbSensor::clear_barometer() {
-  barometer_ = 0;
+  barometer_ = 0u;
   clear_has_barometer();
 }
-inline float pbSensor::barometer() const {
+inline ::google::protobuf::uint32 pbSensor::barometer() const {
   return barometer_;
 }
-inline void pbSensor::set_barometer(float value) {
+inline void pbSensor::set_barometer(::google::protobuf::uint32 value) {
   set_has_barometer();
   barometer_ = value;
 }
 
-// optional float humidity = 3;
+// optional uint32 humidity = 3;
 inline bool pbSensor::has_humidity() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1710,13 +1710,13 @@ inline void pbSensor::clear_has_humidity() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void pbSensor::clear_humidity() {
-  humidity_ = 0;
+  humidity_ = 0u;
   clear_has_humidity();
 }
-inline float pbSensor::humidity() const {
+inline ::google::protobuf::uint32 pbSensor::humidity() const {
   return humidity_;
 }
-inline void pbSensor::set_humidity(float value) {
+inline void pbSensor::set_humidity(::google::protobuf::uint32 value) {
   set_has_humidity();
   humidity_ = value;
 }
