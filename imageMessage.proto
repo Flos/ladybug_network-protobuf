@@ -37,6 +37,12 @@ message pbDisortion {
 	optional double centerY = 4;
 };
 
+message pbFloatTriblet{
+    required float x = 1;
+    required float y = 2;
+    required float Z = 3;
+};
+  
 message pbImage {
 	optional int32 number = 6;
 	optional ImageType type = 7;
@@ -47,18 +53,16 @@ message pbImage {
 	optional uint32 width = 13;
 	optional uint32 packages = 14;
 	optional pbDisortion distortion = 15;
-};
-  
-message pbFloatTriblet{
-	required float x = 1;
-	required float y = 2;
-	required float Z = 3;
+	optional string bayer_encoding = 16;
+	optional string color_encoding = 17;
+	optional pbFloatTriblet rotation = 18;
+	optional pbFloatTriblet translation = 19;
 };
   
 message pbSensor{
-	optional float temperature = 1;
-	optional float barometer = 2;
-	optional float humidity = 3;
+	optional uint32 temperature = 1;
+	optional uint32 barometer = 2;
+	optional uint32 humidity = 3;
 	optional pbFloatTriblet compass = 4;
 	optional pbFloatTriblet accelerometer = 5;
 	optional pbFloatTriblet gyroscope = 6;
@@ -71,5 +75,6 @@ message pbMessage {
 	repeated pbImage Images = 4;
 	required LadybugTimeStamp time = 5;
 	optional pbSensor sensors = 6;
+	optional string serial_number = 7;
 };
 
