@@ -37,6 +37,21 @@ message pbDisortion {
 	optional double centerY = 4;
 };
 
+message pbPosition{
+	required double Rx = 1;
+	required double Ry = 2;
+	required double Rz = 3;
+	required double Tx = 4;
+	required double Ty = 5;
+	required double Tz = 6;
+};
+
+message pbFloatTriblet{
+    required float x = 1;
+    required float y = 2;
+    required float Z = 3;
+};
+  
 message pbImage {
 	optional int32 number = 6;
 	optional ImageType type = 7;
@@ -48,12 +63,8 @@ message pbImage {
 	optional uint32 packages = 14;
 	optional pbDisortion distortion = 15;
 	optional pbPosition position = 16;
-};
-  
-message pbFloatTriblet{
-	required float x = 1;
-	required float y = 2;
-	required float Z = 3;
+	optional string bayer_encoding = 17;
+	optional string color_encoding = 18;
 };
   
 message pbSensor{
@@ -64,15 +75,6 @@ message pbSensor{
 	optional pbFloatTriblet accelerometer = 5;
 	optional pbFloatTriblet gyroscope = 6;
 };
-
-message pbPosition{
-	required double Rx = 1;
-	required double Ry = 2;
-	required double Rz = 3;
-	required double Tx = 4;
-	required double Ty = 5;
-	required double Tz = 6;
-};
   
 message pbMessage {
 	required string camera = 1;
@@ -81,5 +83,6 @@ message pbMessage {
 	repeated pbImage Images = 4;
 	required LadybugTimeStamp time = 5;
 	optional pbSensor sensors = 6;
+	optional string serial_number = 7;
 };
 
