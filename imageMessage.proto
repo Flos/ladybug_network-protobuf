@@ -65,6 +65,10 @@ message pbImage {
 	optional pbPosition position = 16;
 	optional string bayer_encoding = 17;
 	optional string color_encoding = 18;
+	optional uint32 border_top = 19;
+	optional uint32 border_bottem = 20;
+	optional uint32 border_left = 21;
+	optional uint32 border_right = 22;
 };
   
 message pbSensor{
