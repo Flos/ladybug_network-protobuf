@@ -6,3 +6,7 @@ Protobuf message definition for transferring Ladybug images over the network
 
  Create CPP files:
 	protoc imageMessage.proto --cpp_out=.
+     
+	or 
+	
+	make
