@@ -41,6 +41,8 @@ class pbFloatTriblet;
 class pbImage;
 class pbSensor;
 class pbMessage;
+class pb_start_msg;
+class pb_reply;
 
 enum ImageType {
   LADYBUG_RAW_CAM0 = 1,
@@ -77,6 +79,25 @@ inline bool ImageType_Parse(
     const ::std::string& name, ImageType* value) {
   return ::google::protobuf::internal::ParseNamedEnum<ImageType>(
     ImageType_descriptor(), name, value);
+}
+enum command {
+  START = 1,
+  DONTSAVE = 8
+};
+bool command_IsValid(int value);
+const command command_MIN = START;
+const command command_MAX = DONTSAVE;
+const int command_ARRAYSIZE = command_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* command_descriptor();
+inline const ::std::string& command_Name(command value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    command_descriptor(), value);
+}
+inline bool command_Parse(
+    const ::std::string& name, command* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<command>(
+    command_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1103,6 +1124,212 @@ class pbMessage : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static pbMessage* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class pb_start_msg : public ::google::protobuf::Message {
+ public:
+  pb_start_msg();
+  virtual ~pb_start_msg();
+
+  pb_start_msg(const pb_start_msg& from);
+
+  inline pb_start_msg& operator=(const pb_start_msg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pb_start_msg& default_instance();
+
+  void Swap(pb_start_msg* other);
+
+  // implements Message ----------------------------------------------
+
+  pb_start_msg* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pb_start_msg& from);
+  void MergeFrom(const pb_start_msg& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string name = 1;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 1;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // optional .ladybug5_network.command command = 2;
+  inline bool has_command() const;
+  inline void clear_command();
+  static const int kCommandFieldNumber = 2;
+  inline ::ladybug5_network::command command() const;
+  inline void set_command(::ladybug5_network::command value);
+
+  // @@protoc_insertion_point(class_scope:ladybug5_network.pb_start_msg)
+ private:
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_command();
+  inline void clear_has_command();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* name_;
+  int command_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_imageMessage_2eproto();
+  friend void protobuf_AssignDesc_imageMessage_2eproto();
+  friend void protobuf_ShutdownFile_imageMessage_2eproto();
+
+  void InitAsDefaultInstance();
+  static pb_start_msg* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class pb_reply : public ::google::protobuf::Message {
+ public:
+  pb_reply();
+  virtual ~pb_reply();
+
+  pb_reply(const pb_reply& from);
+
+  inline pb_reply& operator=(const pb_reply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pb_reply& default_instance();
+
+  void Swap(pb_reply* other);
+
+  // implements Message ----------------------------------------------
+
+  pb_reply* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pb_reply& from);
+  void MergeFrom(const pb_reply& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bool success = 1;
+  inline bool has_success() const;
+  inline void clear_success();
+  static const int kSuccessFieldNumber = 1;
+  inline bool success() const;
+  inline void set_success(bool value);
+
+  // optional string info = 2;
+  inline bool has_info() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 2;
+  inline const ::std::string& info() const;
+  inline void set_info(const ::std::string& value);
+  inline void set_info(const char* value);
+  inline void set_info(const char* value, size_t size);
+  inline ::std::string* mutable_info();
+  inline ::std::string* release_info();
+  inline void set_allocated_info(::std::string* info);
+
+  // optional .ladybug5_network.pb_start_msg start = 3;
+  inline bool has_start() const;
+  inline void clear_start();
+  static const int kStartFieldNumber = 3;
+  inline const ::ladybug5_network::pb_start_msg& start() const;
+  inline ::ladybug5_network::pb_start_msg* mutable_start();
+  inline ::ladybug5_network::pb_start_msg* release_start();
+  inline void set_allocated_start(::ladybug5_network::pb_start_msg* start);
+
+  // @@protoc_insertion_point(class_scope:ladybug5_network.pb_reply)
+ private:
+  inline void set_has_success();
+  inline void clear_has_success();
+  inline void set_has_info();
+  inline void clear_has_info();
+  inline void set_has_start();
+  inline void clear_has_start();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* info_;
+  ::ladybug5_network::pb_start_msg* start_;
+  bool success_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_imageMessage_2eproto();
+  friend void protobuf_AssignDesc_imageMessage_2eproto();
+  friend void protobuf_ShutdownFile_imageMessage_2eproto();
+
+  void InitAsDefaultInstance();
+  static pb_reply* default_instance_;
 };
 // ===================================================================
 
@@ -2621,6 +2848,237 @@ inline void pbMessage::set_allocated_serial_number(::std::string* serial_number)
   }
 }
 
+// -------------------------------------------------------------------
+
+// pb_start_msg
+
+// required string name = 1;
+inline bool pb_start_msg::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pb_start_msg::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pb_start_msg::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pb_start_msg::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& pb_start_msg::name() const {
+  return *name_;
+}
+inline void pb_start_msg::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void pb_start_msg::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void pb_start_msg::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pb_start_msg::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* pb_start_msg::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pb_start_msg::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional .ladybug5_network.command command = 2;
+inline bool pb_start_msg::has_command() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pb_start_msg::set_has_command() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pb_start_msg::clear_has_command() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pb_start_msg::clear_command() {
+  command_ = 1;
+  clear_has_command();
+}
+inline ::ladybug5_network::command pb_start_msg::command() const {
+  return static_cast< ::ladybug5_network::command >(command_);
+}
+inline void pb_start_msg::set_command(::ladybug5_network::command value) {
+  assert(::ladybug5_network::command_IsValid(value));
+  set_has_command();
+  command_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// pb_reply
+
+// required bool success = 1;
+inline bool pb_reply::has_success() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pb_reply::set_has_success() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pb_reply::clear_has_success() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pb_reply::clear_success() {
+  success_ = false;
+  clear_has_success();
+}
+inline bool pb_reply::success() const {
+  return success_;
+}
+inline void pb_reply::set_success(bool value) {
+  set_has_success();
+  success_ = value;
+}
+
+// optional string info = 2;
+inline bool pb_reply::has_info() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pb_reply::set_has_info() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pb_reply::clear_has_info() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pb_reply::clear_info() {
+  if (info_ != &::google::protobuf::internal::kEmptyString) {
+    info_->clear();
+  }
+  clear_has_info();
+}
+inline const ::std::string& pb_reply::info() const {
+  return *info_;
+}
+inline void pb_reply::set_info(const ::std::string& value) {
+  set_has_info();
+  if (info_ == &::google::protobuf::internal::kEmptyString) {
+    info_ = new ::std::string;
+  }
+  info_->assign(value);
+}
+inline void pb_reply::set_info(const char* value) {
+  set_has_info();
+  if (info_ == &::google::protobuf::internal::kEmptyString) {
+    info_ = new ::std::string;
+  }
+  info_->assign(value);
+}
+inline void pb_reply::set_info(const char* value, size_t size) {
+  set_has_info();
+  if (info_ == &::google::protobuf::internal::kEmptyString) {
+    info_ = new ::std::string;
+  }
+  info_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pb_reply::mutable_info() {
+  set_has_info();
+  if (info_ == &::google::protobuf::internal::kEmptyString) {
+    info_ = new ::std::string;
+  }
+  return info_;
+}
+inline ::std::string* pb_reply::release_info() {
+  clear_has_info();
+  if (info_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = info_;
+    info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pb_reply::set_allocated_info(::std::string* info) {
+  if (info_ != &::google::protobuf::internal::kEmptyString) {
+    delete info_;
+  }
+  if (info) {
+    set_has_info();
+    info_ = info;
+  } else {
+    clear_has_info();
+    info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional .ladybug5_network.pb_start_msg start = 3;
+inline bool pb_reply::has_start() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pb_reply::set_has_start() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pb_reply::clear_has_start() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pb_reply::clear_start() {
+  if (start_ != NULL) start_->::ladybug5_network::pb_start_msg::Clear();
+  clear_has_start();
+}
+inline const ::ladybug5_network::pb_start_msg& pb_reply::start() const {
+  return start_ != NULL ? *start_ : *default_instance_->start_;
+}
+inline ::ladybug5_network::pb_start_msg* pb_reply::mutable_start() {
+  set_has_start();
+  if (start_ == NULL) start_ = new ::ladybug5_network::pb_start_msg;
+  return start_;
+}
+inline ::ladybug5_network::pb_start_msg* pb_reply::release_start() {
+  clear_has_start();
+  ::ladybug5_network::pb_start_msg* temp = start_;
+  start_ = NULL;
+  return temp;
+}
+inline void pb_reply::set_allocated_start(::ladybug5_network::pb_start_msg* start) {
+  delete start_;
+  start_ = start;
+  if (start) {
+    set_has_start();
+  } else {
+    clear_has_start();
+  }
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -2633,6 +3091,10 @@ namespace protobuf {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ladybug5_network::ImageType>() {
   return ::ladybug5_network::ImageType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ladybug5_network::command>() {
+  return ::ladybug5_network::command_descriptor();
 }
 
 }  // namespace google
