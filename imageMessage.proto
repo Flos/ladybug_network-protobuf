@@ -69,6 +69,7 @@ message pbImage {
 	optional uint32 border_bottem = 20;
 	optional uint32 border_left = 21;
 	optional uint32 border_right = 22;
+	optional uint32 depth = 23;
 };
   
 message pbSensor{
@@ -89,20 +90,4 @@ message pbMessage {
 	optional pbSensor sensors = 6;
 	optional string serial_number = 7;
 };
-
-enum command{
-	START = 1; 
-	DONTSAVE = 8;
-};
-
-message pb_start_msg {
-	required string name = 1;
-	optional command command = 2;
-};
-
-message pb_reply{
-	required bool success = 1;
-	optional string info = 2;
-	optional pb_start_msg start = 3;
-}
 
